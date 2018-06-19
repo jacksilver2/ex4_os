@@ -1,0 +1,51 @@
+#include <iostream>
+#include <netdb.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <cstring>
+#include <err.h>
+#include <unistd.h>
+
+#include <iostream>
+#include <cstring>
+#include <cstdlib>
+#include <sstream>
+#include "stdio.h"
+#include "whatsappUtils.h"
+
+int main(int argc, char *argv[])
+{
+	if (argc == 1)
+	{
+		std::cout << "I am nothing" << std::endl;
+		return (-1);
+	}
+	std::cout << "I am Client" << std::endl;
+	char *clientName = argv[1];
+	char *ip = (argv[2]);
+	u_short portnum = static_cast<u_short>(atoi(argv[3]));
+
+	int cs = call_socket_by_address(ip, portnum);
+	send(cs, clientName, strlen(clientName), 0);
+	char inBuff[256];
+
+	std::string str;
+	while (true)
+	{
+		std::cout<<"enter text"<<std::endl;
+		std::cin.getline(inBuff, 1024);
+		send(cs, inBuff, strlen(inBuff), 0);
+		str = std::string(inBuff);
+		if (str == "exit")
+		{
+			close(cs);
+			break;
+		}
+		ssize_t numBytesRead = recv(cs, inBuff, 256, 0);
+		inBuff[numBytesRead] = '\0';
+		std::cout << "server says: " << std::string(inBuff) << std::endl;
+	}
+
+	return 0;
+}

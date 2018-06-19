@@ -1,0 +1,129 @@
+#include <iostream>
+#include <netdb.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <cstring>
+#include <err.h>
+#include <unistd.h>
+
+#include <iostream>
+#include <cstring>
+#include <cstdlib>
+#include <sstream>
+#include "stdio.h"
+#include "whatsappUtils.h"
+#include "server.h"
+
+
+int main(int argc, char *argv[])
+{
+	if (argc == 1)
+	{
+		std::cout << "I am nothing" << std::endl;
+
+		return 0;
+	}
+	std::cout << "I am Server" << std::endl;
+	u_short portnum = static_cast<u_short>(atoi(argv[1]));
+	int s = establish(portnum);
+	std::cout << "s: " << s << std::endl;
+	int requests = 0;
+	char inBuff[256];
+	ssize_t numBytesRead = 0;
+	int newConnection;
+	std::string str;
+	while (str != "KILL SERVER")
+	{
+		newConnection = get_connection(s);
+		std::cout << "newConnection: " << newConnection << std::endl;
+		while (true)
+		{
+			numBytesRead = recv(newConnection, inBuff, 256, 0);
+			inBuff[numBytesRead] = '\0';
+			std::cout << "Client sent: " << std::string(inBuff) << std::endl;
+			char *response = const_cast<char *>("got it");
+			send(newConnection, response, strlen(response), 0);
+			str = std::string(inBuff);
+			if (str == "EXIT")
+			{
+				std::cout << "Client disconnected" << std::endl;
+				close(newConnection);
+				break;
+			}
+		}
+
+	}
+	std::cout << "Client KILLED SERVER" << std::endl;
+//	close(newConnection);
+	close(s);
+	std::cout << "SERVICE TERMINATED" << std::endl;
+	return 0;
+}
+==================================================================================================================
+==================================================================================================================
+==================================================================================================================
+==================================================================================================================
+
+#include <iostream>
+#include <netdb.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <cstring>
+#include <err.h>
+#include <unistd.h>
+
+#include <iostream>
+#include <cstring>
+#include <cstdlib>
+#include <sstream>
+#include "stdio.h"
+#include "whatsappUtils.h"
+
+int main(int argc, char *argv[])
+{
+	if (argc == 1)
+	{
+		std::cout << "I am nothing" << std::endl;
+		return (-1);
+	}
+
+	std::cout << "I am Client" << std::endl;
+	char *clientName = argv[1];
+	std::string ip = (argv[2]);
+	u_short portnum = static_cast<u_short>(atoi(argv[3]));
+
+	int cs = call_socket_by_address(const_cast<char *>("127.0.1.1"), portnum);
+	send(cs, clientName, strlen(clientName), 0);
+	char inBuff[256];
+
+	ssize_t numBytesRead = recv(cs, inBuff, 256, 0);
+	inBuff[numBytesRead] = '\0';
+	std::cout << "server says: " << std::string(inBuff) << std::endl;
+	std::string str;
+	while (true)
+	{
+		std::cin.getline(inBuff, 1024);
+		send(cs, inBuff, strlen(inBuff), 0);
+		str = std::string(inBuff);
+		if (str == "EXIT" || str == "KILL SERVER")
+		{
+			close(cs);
+			break;
+		}
+		numBytesRead = recv(cs, inBuff, 256, 0);
+		inBuff[numBytesRead] = '\0';
+		std::cout << "server says: " << std::string(inBuff) << std::endl;
+	}
+
+
+	//	char inputBuf[1024];
+//	std::string inputString;
+//	std::cout << "enter data to send:" << std::endl;
+// 		inputBuf = const_cast<char *>("some nice input");
+//	std::cin.getline(inputBuf, 1024);
+//		write_data(cs, inputBuf, strlen(inputBuf));
+//	send(cs, inputBuf, strlen(inputBuf), NULL);
+	return 0;
+}
