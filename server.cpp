@@ -203,7 +203,7 @@ int main(int argc, char *argv[])
 					parse_command(str, parsedCmdType, parsedName, parsedMsg, parsedClients);
 					trace(" parse success");
 
-					if (parsedCmdType == SEND) // change //change
+					if (parsedCmdType == SEND)
 					{
 //						clientMap[it->first].messages.push_back(message(it->first, parsedName, parsedMsg));
 //						clientMap[it->first].messages.push_back(message(it->first, parsedName, parsedMsg));

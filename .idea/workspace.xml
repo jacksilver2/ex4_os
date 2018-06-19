@@ -11,9 +11,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5fe1573-cfe2-4314-b6f4-55398edc3bbb" name="Default" comment="please god">
-      <change beforePath="$PROJECT_DIR$/cl.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/cl.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ser.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ser.cpp" afterDir="false" />
+    <list default="true" id="a5fe1573-cfe2-4314-b6f4-55398edc3bbb" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/makefile" beforeDir="false" afterPath="$PROJECT_DIR$/makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="client.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="client.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="99" column="31" selection-start-line="99" selection-start-column="31" selection-end-line="99" selection-end-column="31" />
+            <state relative-caret-position="422">
+              <caret line="72" column="45" selection-start-line="72" selection-start-column="45" selection-end-line="72" selection-end-column="45" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -71,11 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="server.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="server.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="199" column="36" selection-end-line="388" />
+            <state relative-caret-position="290">
+              <caret line="205" column="46" selection-start-line="205" selection-start-column="46" selection-end-line="205" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -159,11 +160,11 @@
         <option value="$PROJECT_DIR$/whatsappUtils.h" />
         <option value="$PROJECT_DIR$/test.cpp" />
         <option value="$PROJECT_DIR$/whatsappUtils.cpp" />
-        <option value="$PROJECT_DIR$/client.cpp" />
         <option value="$PROJECT_DIR$/makefile" />
-        <option value="$PROJECT_DIR$/server.cpp" />
         <option value="$PROJECT_DIR$/ser.cpp" />
         <option value="$PROJECT_DIR$/cl.cpp" />
+        <option value="$PROJECT_DIR$/client.cpp" />
+        <option value="$PROJECT_DIR$/server.cpp" />
       </list>
     </option>
   </component>
@@ -255,12 +256,20 @@
       <workItem from="1529325321505" duration="2102000" />
       <workItem from="1529335261482" duration="2606000" />
       <workItem from="1529337885820" duration="2708000" />
-      <workItem from="1529341347974" duration="2549000" />
+      <workItem from="1529341347974" duration="3543000" />
     </task>
+    <task id="LOCAL-00001" summary="some changes">
+      <created>1529405709806</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1529405709806</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="146817000" />
+    <option name="totallyTimeSpent" value="147811000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
@@ -270,10 +279,10 @@
       <window_info anchor="right" id="Messages" order="3" sideWeight="0.49861497" weight="0.206469" />
       <window_info anchor="bottom" id="CMake" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="8" sideWeight="0.49973047" visible="true" weight="0.32921812" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49973047" weight="0.32921812" />
       <window_info anchor="right" x="756" y="280" width="461" height="610" id="Run" order="4" sideWeight="0.50138503" side_tool="true" weight="0.32938007" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" x="39" y="424" width="1855" height="216" id="Terminal" order="9" sideWeight="0.50026953" side_tool="true" visible="true" weight="0.32921812" />
+      <window_info active="true" anchor="bottom" x="39" y="424" width="1855" height="216" id="Terminal" order="9" sideWeight="0.50026953" side_tool="true" visible="true" weight="0.32921812" />
       <window_info id="Favorites" order="2" sideWeight="0.50070524" side_tool="true" weight="0.16603774" />
       <window_info anchor="bottom" id="Debug" order="2" weight="0.37704918" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -312,8 +321,11 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="please god" />
-    <option name="LAST_COMMIT_MESSAGE" value="please god" />
+    <MESSAGE value="some changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="some changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -665,13 +677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="199" column="36" selection-end-line="388" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ser.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="10730">
@@ -691,11 +696,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="99" column="31" selection-start-line="99" selection-start-column="31" selection-end-line="99" selection-end-column="31" />
+        <state relative-caret-position="422">
+          <caret line="72" column="45" selection-start-line="72" selection-start-column="45" selection-end-line="72" selection-end-column="45" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="205" column="46" selection-start-line="205" selection-start-column="46" selection-end-line="205" selection-end-column="46" />
         </state>
       </provider>
     </entry>
