@@ -65,12 +65,12 @@ int main(int argc, char *argv[])
 			}
 			if (rawServerMsg == "SD")
 			{
-				close(cs);
+				close(cs); //change
 				exit(1);
 			}
 			if (rawServerMsg == "welcome")
 			{
-				print_connection();
+				print_connection(); // change
 				printRaw = false;
 			}
 			if (rawServerMsg == "sent_code")
