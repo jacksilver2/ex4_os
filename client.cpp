@@ -65,12 +65,12 @@ int main(int argc, char *argv[])
 			}
 			if (rawServerMsg == "SD")
 			{
-				close(cs); //change
+				close(cs);
 				exit(1);
 			}
 			if (rawServerMsg == "welcome")
 			{
-				print_connection(); // change
+				print_connection();
 				printRaw = false;
 			}
 			if (rawServerMsg == "sent_code")
@@ -122,12 +122,12 @@ int main(int argc, char *argv[])
 			if (parsedCmdType != INVALID)
 			{
 				write_data(cs, inBuff, strlen(inBuff));
-				if (parsedCmdType == EXIT)
-				{
-					print_exit(false, "");
-					close(cs);
-					break;
-				}
+			}
+			if (parsedCmdType == EXIT)
+			{
+				print_exit(false, "");
+				close(cs);
+				break;
 			}
 		}
 

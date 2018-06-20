@@ -54,7 +54,7 @@ void ping(std::map<std::string, triple> &clientMap, std::map<std::string, triple
 
 void trace(std::string s)
 {
-	std::cout << "trace" << s << std::endl;
+	//std::cout << "trace  " << s << std::endl;
 }
 
 std::string whoLlist(bool success, const std::map<std::string, triple> &clientMap)
@@ -89,7 +89,7 @@ void listGroups(std::map<std::string, std::vector<std::string>> &gmap)
 {
 	for (std::map<std::string, std::vector<std::string>>::iterator it = gmap.begin(); it != gmap.end(); ++it)
 	{
-		std::cout << "------------------------------------" << it->first << std::endl;
+		std::cout << "------------------------------------" << std::endl;
 		std::cout << "Group name: " << it->first << std::endl;
 		std::cout << "Group members: " << std::endl;
 		for (const std::string &name : it->second)
@@ -129,10 +129,13 @@ int main(int argc, char *argv[])
 
 	while (true)
 	{
+		trace("loop start");
 		++count;
 		readerFds = clientsFds; //all clients are now "readerFds"
 		if (select(MAX_CLIENTS + 4, &readerFds, NULL, NULL, NULL) < 0) //TODO do variable max clients
 		{
+			trace("select failed!");
+
 			//terminateServer();
 			return -1;
 		}
@@ -153,6 +156,7 @@ int main(int argc, char *argv[])
 				send(newConnection, "welcome", strlen("welcome"), 0);
 				print_connection_server(rawInput);
 				clientMap[rawInput].fd = newConnection;
+//				clientMap[rawInput].groups;
 			}
 			FD_CLR(serverSocket, &readerFds);
 
@@ -205,8 +209,7 @@ int main(int argc, char *argv[])
 
 					if (parsedCmdType == SEND)
 					{
-//						clientMap[it->first].messages.push_back(message(it->first, parsedName, parsedMsg));
-//						clientMap[it->first].messages.push_back(message(it->first, parsedName, parsedMsg));
+						clientMap[it->first].messages.push_back(message(it->first, parsedName, parsedMsg)); //log message
 
 						// sending message logic //
 						if (clientMap.find(parsedName) != clientMap.end())
@@ -231,7 +234,9 @@ int main(int argc, char *argv[])
 					if (parsedCmdType == EXIT)
 					{
 						print_exit(true, it->first);
-						//toErase.push(it->first);
+						FD_CLR(it->second.fd, &clientsFds);
+						close(it->second.fd);
+						toErase.push(it->first);
 					}
 					trace("1");
 					if (parsedCmdType == WHO)
@@ -240,34 +245,43 @@ int main(int argc, char *argv[])
 						std::string list = whoLlist(true, clientMap);
 						send(it->second.fd, list.c_str(), strlen(list.c_str()), 0);
 					}
-					bool groupCreateSuccess = true;
+					bool gFlow = true;
+					bool pleaseErase = false;
 					std::string fullMsg;
 
-					if (parsedCmdType == CREATE_GROUP)
+					if (parsedCmdType ==
+						CREATE_GROUP) //TODO needs to fail if creating group with list containing only client himself
+						//TODO exit on client side works only on second time after failed attempt at group creation
 					{
-						if (parsedClients.empty())
+						if (groupMap.find(parsedName) != groupMap.end() ||
+							clientMap.find(parsedName) != clientMap.end() ||
+							parsedClients.empty())
 						{
-							std::cout << "no clients passed!!" << std::endl;
-							groupCreateSuccess = false;
-						} else if (groupMap.find(parsedName) != groupMap.end() ||
-								   clientMap.find(parsedName) != clientMap.end())
+							gFlow = false; //this means that the desired group name is already taken or no clients passed
+						}
+						std::set<std::string> clientSet;
+						if (gFlow)
 						{
-							groupCreateSuccess = false; //this means that the desired group name is already taken
-						} else
-						{
-							std::set<std::string> clientSet(parsedClients.begin(), parsedClients.end());
+							clientSet.insert(parsedClients.begin(), parsedClients.end());
 							clientSet.insert(it->first);
+							std::cout << "set size: " << clientSet.size() << std::endl;
+							gFlow = (clientSet.size() > 1); //checking if non self names exist
+
+						}
+						if (gFlow)
+						{
+							parsedClients.clear(); //?
 							parsedClients.assign(clientSet.begin(), clientSet.end());
 							for (const std::string &name : parsedClients)
 							{
-								if (clientMap.find(name) != clientMap.end())//this means there is a missing client name
+								if (clientMap.find(name) != clientMap.end())
 								{
 									groupMap[parsedName].push_back(name);
 									clientMap[name].groups.push_back(
 											parsedName); // adding group name to each clients' group vec
 								} else
 								{
-									groupCreateSuccess = false;
+									gFlow = false;
 									std::cout << "Oh no client tried to create a group with non exitent clients"
 											  << std::endl;
 									groupMap.erase(parsedName);
@@ -275,9 +289,8 @@ int main(int argc, char *argv[])
 								}
 							}
 						}
-						if (!groupCreateSuccess)
+						if (!gFlow)
 						{
-							//TODO are we supposed to create a group if client passed list with non-existent clients?!
 							fullMsg = "gd_" + parsedName;
 						} else
 						{
@@ -287,22 +300,29 @@ int main(int argc, char *argv[])
 						trace("!!");
 
 						send(it->second.fd, fullMsg.c_str(), strlen(fullMsg.c_str()), 0);
-						print_create_group(true, groupCreateSuccess, it->first, parsedName);
+						print_create_group(true, gFlow, it->first, parsedName);
 					}
 				}
 			}
 			//remove disconnected clients:
-//			while (!toErase.empty())
-//			{
-//				for (const std::string &g : it->second.groups) //check all groups of cur client
-//				{
-//					removeByName(&groupMap[g], it->first); // remove him from each group he was in
-//				}
-//				clientMap.erase(toErase.front());
-//				close(clientMap[toErase.front()].fd);
-//				removeByName(&vecOfClientNames, toErase.front());
-//				toErase.pop();
-//			}
+			trace("about to erase");
+			while (!toErase.empty())
+			{
+				for (const std::string &g : clientMap[toErase.front()].groups)
+				{
+					std::cout << "removing " << toErase.front() << " from group " << g << std::endl;
+					removeByName(&groupMap[g], toErase.front()); // remove him from each group he was in
+					std::cout<< "group size is " << groupMap[g].size() << std::endl;
+					if (groupMap[g].empty())
+					{
+						groupMap.erase(g);
+					}
+				}
+				close(clientMap[toErase.front()].fd);
+				clientMap.erase(toErase.front());
+				toErase.pop();
+
+			}
 			count = 0;
 		}
 		if (terminateServer)

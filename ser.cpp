@@ -54,7 +54,7 @@ void ping(std::map<std::string, triple> &clientMap, std::map<std::string, triple
 
 void trace(std::string s)
 {
-	std::cout << "trace" << s << std::endl;
+	//std::cout << "trace  " << s << std::endl;
 }
 
 std::string whoLlist(bool success, const std::map<std::string, triple> &clientMap)
@@ -89,7 +89,7 @@ void listGroups(std::map<std::string, std::vector<std::string>> &gmap)
 {
 	for (std::map<std::string, std::vector<std::string>>::iterator it = gmap.begin(); it != gmap.end(); ++it)
 	{
-		std::cout << "------------------------------------" << it->first << std::endl;
+		std::cout << "------------------------------------"<< std::endl;
 		std::cout << "Group name: " << it->first << std::endl;
 		std::cout << "Group members: " << std::endl;
 		for (const std::string &name : it->second)
@@ -129,10 +129,13 @@ int main(int argc, char *argv[])
 
 	while (true)
 	{
+		trace("loop start");
 		++count;
 		readerFds = clientsFds; //all clients are now "readerFds"
 		if (select(MAX_CLIENTS + 4, &readerFds, NULL, NULL, NULL) < 0) //TODO do variable max clients
 		{
+			trace("select failed!");
+
 			//terminateServer();
 			return -1;
 		}
@@ -231,7 +234,9 @@ int main(int argc, char *argv[])
 					if (parsedCmdType == EXIT)
 					{
 						print_exit(true, it->first);
-						//toErase.push(it->first);
+						FD_CLR(it->second.fd, &clientsFds);
+						close(it->second.fd);
+						toErase.push(it->first);
 					}
 					trace("1");
 					if (parsedCmdType == WHO)
@@ -241,22 +246,28 @@ int main(int argc, char *argv[])
 						send(it->second.fd, list.c_str(), strlen(list.c_str()), 0);
 					}
 					bool groupCreateSuccess = true;
+					bool pleaseErase = false;
 					std::string fullMsg;
 
-					if (parsedCmdType == CREATE_GROUP)
+					if (parsedCmdType ==
+						CREATE_GROUP) //TODO needs to fail if creating group with list containing only client himself
+						//TODO exit on client side works only on second time after failed attempt at group creation
 					{
 						if (parsedClients.empty())
 						{
-							std::cout << "no clients passed!!" << std::endl;
+							std::cout << "no non-self clients passed!!" << std::endl;
 							groupCreateSuccess = false;
 						} else if (groupMap.find(parsedName) != groupMap.end() ||
 								   clientMap.find(parsedName) != clientMap.end())
 						{
 							groupCreateSuccess = false; //this means that the desired group name is already taken
-						} else
+						} else if (groupCreateSuccess)
 						{
 							std::set<std::string> clientSet(parsedClients.begin(), parsedClients.end());
 							clientSet.insert(it->first);
+							std::cout<<"set size: "<< clientSet.size()<<std::endl;
+							groupCreateSuccess = (clientSet.size() > 1);
+							parsedClients.clear(); //??
 							parsedClients.assign(clientSet.begin(), clientSet.end());
 							for (const std::string &name : parsedClients)
 							{
@@ -270,14 +281,13 @@ int main(int argc, char *argv[])
 									groupCreateSuccess = false;
 									std::cout << "Oh no client tried to create a group with non exitent clients"
 											  << std::endl;
-									groupMap.erase(parsedName);
 									break; //goes to check if group created sucessfuly
 								}
 							}
 						}
 						if (!groupCreateSuccess)
 						{
-							//TODO are we supposed to create a group if client passed list with non-existent clients?!
+							groupMap.erase(parsedName);
 							fullMsg = "gd_" + parsedName;
 						} else
 						{
@@ -292,17 +302,18 @@ int main(int argc, char *argv[])
 				}
 			}
 			//remove disconnected clients:
-//			while (!toErase.empty())
-//			{
+			trace("about to erase");
+			while (!toErase.empty())
+			{
 //				for (const std::string &g : it->second.groups) //check all groups of cur client
 //				{
 //					removeByName(&groupMap[g], it->first); // remove him from each group he was in
 //				}
-//				clientMap.erase(toErase.front());
 //				close(clientMap[toErase.front()].fd);
+				clientMap.erase(toErase.front());
 //				removeByName(&vecOfClientNames, toErase.front());
-//				toErase.pop();
-//			}
+				toErase.pop();
+			}
 			count = 0;
 		}
 		if (terminateServer)
