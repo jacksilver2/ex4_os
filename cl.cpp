@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
 			rawServerMsg = std::string(inBuff);
 			bool printRaw = true;
 
-			if (rawServerMsg == "dup_code")
+			if (rawServerMsg == DUP_CODE)
 			{
 				print_dup_connection();
 				printRaw = false;
@@ -68,18 +68,18 @@ int main(int argc, char *argv[])
 				close(cs);
 				exit(1);
 			}
-			if (rawServerMsg == "welcome")
+			if (rawServerMsg == WELCOME)
 			{
 				print_connection();
 				printRaw = false;
 			}
-			if (rawServerMsg == "sent_code")
+			if (rawServerMsg == SENT_CODE)
 			{
 				print_send(false, true, "", "", "");
 				printRaw = false;
 				rawServerMsg = "";
 			}
-			if (rawServerMsg == "no_send")
+			if (rawServerMsg == NO_SEND)
 			{
 				print_send(false, false, "", "", "");
 				printRaw = false;
@@ -122,7 +122,7 @@ int main(int argc, char *argv[])
 			if (parsedCmdType != INVALID)
 			{
 				send(cs, inBuff, strlen(inBuff), 0);
-				if (parsedCmdType == EXIT)
+				if (parsedCmdType == EXIT_CODE)
 				{
 					print_exit(false, "");
 					close(cs);

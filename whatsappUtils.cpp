@@ -17,6 +17,8 @@
 
 #define MAXHOSTNAME 256
 
+
+
 int establish(unsigned short portnum)
 {
 	char myname[MAXHOSTNAME + 1];
@@ -122,7 +124,6 @@ int call_socket_by_address(char *ip, u_short portnum)
 	if (inet_aton(ip, &sa.sin_addr) == 0)
 	{
 		print_error("inet_aton",errno);
-
 	}
 	sa.sin_family = AF_INET;
 	sa.sin_port = htons((u_short) portnum);

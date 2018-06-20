@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
 			char *response = const_cast<char *>("got it");
 			send(newConnection, response, strlen(response), 0);
 			str = std::string(inBuff);
-			if (str == "EXIT")
+			if (str == "EXIT_CODE")
 			{
 				std::cout << "Client disconnected" << std::endl;
 				close(newConnection);
@@ -107,7 +107,7 @@ int main(int argc, char *argv[])
 		std::cin.getline(inBuff, 1024);
 		send(cs, inBuff, strlen(inBuff), 0);
 		str = std::string(inBuff);
-		if (str == "EXIT" || str == "KILL SERVER")
+		if (str == "EXIT_CODE" || str == "KILL SERVER")
 		{
 			close(cs);
 			break;

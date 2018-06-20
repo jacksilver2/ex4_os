@@ -17,8 +17,11 @@
 #include "whatsappUtils.h"
 #include "whatsappio.h"
 #include "server.h"
+#include <algorithm>
 
 #define MAX_CLIENTS 30
+
+#define COOL_FEATURES false
 
 struct message
 {
@@ -50,7 +53,7 @@ void listClients(std::map<std::string, triple> &cmap);
 
 int removeByName(std::vector<std::string> *vec, std::string name);
 
-void kill(std::map<std::string, triple> &clientMap, std::map<std::string, triple>::iterator it);
+void kill(std::map<std::string, triple> &clientMap);
 
 void trace(std::string s)
 {
@@ -111,14 +114,22 @@ bool foundInVec(const std::vector<std::string> &vec, std::string value)
 	return false;
 }
 
+
+
+
 int main(int argc, char *argv[])
 {
+	if (argc!=2)
+	{
+		print_server_usage();
+		exit(1);
+	}
 	std::map<std::string, triple> clientMap;
 	std::map<std::string, std::vector<std::string>> groupMap;
 	std::vector<std::string> vecOfClientNames;
 	u_short portnum = static_cast<u_short>(atoi(argv[1]));
 	int serverSocket = establish(portnum);
-	std::cout << "serverSocket: " << serverSocket << std::endl;
+//	std::cout << "serverSocket: " << serverSocket << std::endl;
 	int requests = 0;
 	char inBuff[256];
 	ssize_t numBytesRead = 0;
@@ -141,15 +152,11 @@ int main(int argc, char *argv[])
 
 	while (true)
 	{
-		trace("loop start");
 		++count;
 		readerFds = clientsFds; //all clients are now "readerFds"
-		if (select(MAX_CLIENTS + 4, &readerFds, NULL, NULL, NULL) < 0) //TODO do variable max clients
+		if (select(MAX_CLIENTS + 4, &readerFds, NULL, NULL, NULL) < 0)
 		{
-			trace("select failed!");
-
-			//terminateServer();
-			return -1;
+			terminateServer = true;
 		}
 
 		if (FD_ISSET(serverSocket, &readerFds)) //checks if there are new clients who want to connect
@@ -159,13 +166,13 @@ int main(int argc, char *argv[])
 			numBytesRead = recv(newConnection, inBuff, 256, 0);
 			inBuff[numBytesRead] = '\0';
 			std::string rawInput = std::string(inBuff);
-			std::cout << "raw input: [" << rawInput << "]" << std::endl;
+//			std::cout << "raw input: [" << rawInput << "]" << std::endl;
 			if (clientMap.find(rawInput) != clientMap.end())
 			{
-				send(newConnection, "dup_code", strlen("dup_code"), 0);
+				send(newConnection, DUP_CODE, strlen(DUP_CODE), 0);
 			} else
 			{
-				send(newConnection, "welcome", strlen("welcome"), 0);
+				send(newConnection, WELCOME, strlen(WELCOME), 0);
 				print_connection_server(rawInput);
 				clientMap[rawInput].fd = newConnection;
 			}
@@ -176,31 +183,30 @@ int main(int argc, char *argv[])
 		{
 			//server std input:
 			std::cin.getline(srvrCmdBuff, 256);
-			if (std::string(srvrCmdBuff) == "exit")
+			if (std::string(srvrCmdBuff) == EXIT_CODE)
 			{
 				close(serverSocket);
 				terminateServer = true;
 				print_exit();
 			}
-			if (std::string(srvrCmdBuff) == "lc")
+			if (std::string(srvrCmdBuff) == "lc" && COOL_FEATURES)
 			{
 				std::cout << "printing clients: " << std::endl;
 				listClients(clientMap);
 			}
-			if (std::string(srvrCmdBuff) == "lg")
+			if (std::string(srvrCmdBuff) == "lg" && COOL_FEATURES)
 			{
 				std::cout << "printing groups: " << std::endl;
 				listGroups(groupMap);
 			}
-			if (std::string(srvrCmdBuff) == "kill")
+			if (std::string(srvrCmdBuff) == "kill" && COOL_FEATURES)
 			{
-				kill(clientMap, it);
+				kill(clientMap);
 			}
 		} else
 		{    //take care of client requests:
 			for (it = clientMap.begin(); it != clientMap.end(); ++it)
 			{
-				trace(" entered for loop");
 
 				if (FD_ISSET(it->second.fd, &readerFds) != 0)
 				{
@@ -213,9 +219,7 @@ int main(int argc, char *argv[])
 					std::string parsedName;
 					std::string parsedMsg;
 					std::vector<std::string> parsedClients;
-					trace("right before parse");
 					parse_command(str, parsedCmdType, parsedName, parsedMsg, parsedClients);
-					trace(" parse success");
 
 					if (parsedCmdType == SEND)
 					{
@@ -231,9 +235,8 @@ int main(int argc, char *argv[])
 						{
 							recepientFD = clientMap[parsedName].fd;
 							sentMessage = true;
-							send(it->second.fd, "sent_code", strlen("sent_code"), 0);
+							send(it->second.fd, SENT_CODE, strlen(SENT_CODE), 0);
 							send(recepientFD, fullMsg.c_str(), strlen(fullMsg.c_str()), 0);
-//						} else if (groupMap.find(parsedName) != groupMap.end())
 						} else if (foundInVec(it->second.groups, parsedName)) // making sure client is in group
 						{
 							for (const std::string &client : groupMap[parsedName])
@@ -245,12 +248,12 @@ int main(int argc, char *argv[])
 								}
 								send(recepientFD, fullMsg.c_str(), strlen(fullMsg.c_str()), 0);
 							}
-							send(it->second.fd, "sent_code", strlen("sent_code"), 0);
+							send(it->second.fd, SENT_CODE, strlen(SENT_CODE), 0);
 							sentMessage = true;
 						}
 						if (!sentMessage)
 						{
-							send(it->second.fd, "no_send", strlen("no_send"), 0);
+							send(it->second.fd, NO_SEND, strlen(NO_SEND), 0);
 						}
 						print_send(true, sentMessage, it->first, parsedName, parsedMsg);
 
@@ -263,7 +266,6 @@ int main(int argc, char *argv[])
 						close(it->second.fd);
 						toErase.push(it->first);
 					}
-					trace("1");
 					if (parsedCmdType == WHO)
 					{
 						print_who_server(it->first);
@@ -275,8 +277,7 @@ int main(int argc, char *argv[])
 					std::string fullMsg;
 
 					if (parsedCmdType ==
-						CREATE_GROUP) //TODO needs to fail if creating group with list containing only client himself
-						//TODO exit on client side works only on second time after failed attempt at group creation
+						CREATE_GROUP)
 					{
 						if (groupMap.find(parsedName) != groupMap.end() ||
 							clientMap.find(parsedName) != clientMap.end() ||
@@ -302,8 +303,6 @@ int main(int argc, char *argv[])
 								if (clientMap.find(name) == clientMap.end())
 								{
 									gFlow = false;
-									std::cout << "Oh no client tried to create a group with non exitent clients"
-											  << std::endl;
 								}
 							}
 						}
@@ -343,16 +342,11 @@ int main(int argc, char *argv[])
 			close(clientMap[toErase.front()].fd);
 			clientMap.erase(toErase.front());
 			toErase.pop();
-
 		}
 		count = 0;
 		if (terminateServer)
 		{
-			for (it = clientMap.begin(); it != clientMap.end(); ++it)
-			{
-				send(it->second.fd, "SD", strlen("SD"), 0); //send "Shut Down" notification to all clients
-				close(it->second.fd);
-			}
+			kill(clientMap);
 			break;
 		}
 	}
@@ -360,13 +354,12 @@ int main(int argc, char *argv[])
 	return 0;
 }
 
-void kill(std::map<std::string, triple> &clientMap, std::map<std::string, triple>::iterator it)
+void kill(std::map<std::string, triple> &clientMap)
 {
-	std::cout << "killing clients" << std::endl;
+	std::map<std::string, triple>::iterator it;
 	for (it = clientMap.begin(); it != clientMap.end(); ++it)
 	{
-		send(it->second.fd, const_cast<char *>("kill"), strlen("kill"),0);
-		std::cout << "killed " << it->first << " (fd = " << it->second.fd << ")" << std::endl;
+		send(it->second.fd, const_cast<char *>(KILL), strlen(KILL),0);
 	}
 }
 

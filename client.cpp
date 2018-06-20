@@ -14,14 +14,27 @@
 #include "stdio.h"
 #include "whatsappUtils.h"
 #include "whatsappio.h"
-
+#include <algorithm>
 
 fd_set fdSet;
 fd_set readFds;
 
+static inline bool is_not_alnum_space(char c)
+{
+	return !(isalpha(c) || isdigit(c) || (c == ' '));
+}
 
+bool string_is_valid(const std::string &str)
+{
+	return find_if(str.begin(), str.end(), is_not_alnum_space) == str.end();
+}
 int main(int argc, char *argv[])
 {
+	if (argc!=4 || !string_is_valid(std::string(argv[1])))
+	{
+		print_client_usage();
+		exit(1);
+	}
 	char *clientName = argv[1];
 	char *ip = (argv[2]);
 	u_short portnum = static_cast<u_short>(atoi(argv[3]));
@@ -29,7 +42,7 @@ int main(int argc, char *argv[])
 	int cs = call_socket_by_address(ip, portnum);
 	if (cs < 0)
 	{
-		print_fail_connection(); //todo is this good?
+		print_fail_connection();
 	}
 
 	char inBuff[256];
@@ -47,7 +60,6 @@ int main(int argc, char *argv[])
 		readFds = fdSet;
 		if (select(20, &readFds, NULL, NULL, NULL) < 0)
 		{
-			std::cout << "something is wrong" << std::endl;
 			return -1;
 		}
 		if (FD_ISSET(cs, &readFds))
@@ -57,29 +69,24 @@ int main(int argc, char *argv[])
 			rawServerMsg = std::string(inBuff);
 			bool printRaw = true;
 
-			if (rawServerMsg == "dup_code")
+			if (rawServerMsg == DUP_CODE)
 			{
 				print_dup_connection();
-				printRaw = false;
 				exit(1);
 			}
-			if (rawServerMsg == "SD")
-			{
-				close(cs);
-				exit(1);
-			}
-			if (rawServerMsg == "welcome")
+
+			if (rawServerMsg == WELCOME)
 			{
 				print_connection();
 				printRaw = false;
 			}
-			if (rawServerMsg == "sent_code")
+			if (rawServerMsg == SENT_CODE)
 			{
 				print_send(false, true, "", "", "");
 				printRaw = false;
 				rawServerMsg = "";
 			}
-			if (rawServerMsg == "no_send")
+			if (rawServerMsg == NO_SEND)
 			{
 				print_send(false, false, "", "", "");
 				printRaw = false;
@@ -97,14 +104,11 @@ int main(int argc, char *argv[])
 				printRaw = false;
 				rawServerMsg = "";
 			}
-			if (rawServerMsg == "kill")
+			if (rawServerMsg == KILL)
 			{
-				std::cout << "killed by server" << std::endl;
-				send(cs, const_cast<char *>("exit"), strlen(inBuff), 0);
-				print_exit(false, "");
+				send(cs, const_cast<char *>(EXIT_CODE), strlen(inBuff), 0);
 				close(cs);
-				return (0);
-				printRaw = false;
+				exit(1);
 			}
 			if (printRaw)
 			{
@@ -123,13 +127,14 @@ int main(int argc, char *argv[])
 			std::vector<std::string> parsedNames;
 
 			parse_command(str, parsedCmdType, parsedName, parsedMsg, parsedNames);
+
 			if (parsedCmdType == INVALID)
 			{
 				print_invalid_input();
 			}
 			if (parsedCmdType == SEND)
 			{
-				if (clientName == parsedName)
+				if (clientName == parsedName || !string_is_valid(parsedName))
 				{
 					print_send(false, false, "", "", "");
 				} else

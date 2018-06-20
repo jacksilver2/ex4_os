@@ -1,5 +1,10 @@
 #ifndef OS_EX4_WHATSAPPUTILS_H
-
+#define DUP_CODE "dup_code"
+#define WELCOME "welcome"
+#define SENT_CODE "sent_code"
+#define NO_SEND "no_send"
+#define KILL "kill"
+#define EXIT_CODE "exit"
 int establish(unsigned short portnum);
 
 int get_connection(int s);
