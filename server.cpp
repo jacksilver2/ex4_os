@@ -50,7 +50,7 @@ void listClients(std::map<std::string, triple> &cmap);
 
 int removeByName(std::vector<std::string> *vec, std::string name);
 
-void ping(std::map<std::string, triple> &clientMap, std::map<std::string, triple>::iterator it);
+void kill(std::map<std::string, triple> &clientMap, std::map<std::string, triple>::iterator it);
 
 void trace(std::string s)
 {
@@ -97,6 +97,18 @@ void listGroups(std::map<std::string, std::vector<std::string>> &gmap)
 			std::cout << name << std::endl;
 		}
 	}
+}
+
+bool foundInVec(const std::vector<std::string> &vec, std::string value)
+{
+	for (const std::string &s : vec)
+	{
+		if (s == value)
+		{
+			return true;
+		}
+	}
+	return false;
 }
 
 int main(int argc, char *argv[])
@@ -156,11 +168,9 @@ int main(int argc, char *argv[])
 				send(newConnection, "welcome", strlen("welcome"), 0);
 				print_connection_server(rawInput);
 				clientMap[rawInput].fd = newConnection;
-//				clientMap[rawInput].groups;
 			}
 			FD_CLR(serverSocket, &readerFds);
 
-			//add client everywhere
 		}
 		if (FD_ISSET(STDIN_FILENO, &readerFds)) //checks if a server side command is typed
 		{
@@ -182,9 +192,9 @@ int main(int argc, char *argv[])
 				std::cout << "printing groups: " << std::endl;
 				listGroups(groupMap);
 			}
-			if (std::string(srvrCmdBuff) == "sm")
+			if (std::string(srvrCmdBuff) == "kill")
 			{
-				ping(clientMap, it);
+				kill(clientMap, it);
 			}
 		} else
 		{    //take care of client requests:
@@ -209,25 +219,40 @@ int main(int argc, char *argv[])
 
 					if (parsedCmdType == SEND)
 					{
-						clientMap[it->first].messages.push_back(message(it->first, parsedName, parsedMsg)); //log message
+						clientMap[it->first].messages.push_back(
+								message(it->first, parsedName, parsedMsg)); //log message
+
+						std::string fullMsg = it->first + ": " + parsedMsg;
+						int recepientFD;
+						bool sentMessage = false;
 
 						// sending message logic //
-						if (clientMap.find(parsedName) != clientMap.end())
+						if (clientMap.find(parsedName) != clientMap.end()) // making sure not sending to ghost
 						{
-							int recepientFD = clientMap[parsedName].fd;
-							std::string fullMsg = it->first + ": " + parsedMsg;
+							recepientFD = clientMap[parsedName].fd;
+							sentMessage = true;
 							send(it->second.fd, "sent_code", strlen("sent_code"), 0);
 							send(recepientFD, fullMsg.c_str(), strlen(fullMsg.c_str()), 0);
-							print_send(true, true, it->first, parsedName, parsedMsg);
-						} else if (groupMap.find(parsedName) != groupMap.end())
+//						} else if (groupMap.find(parsedName) != groupMap.end())
+						} else if (foundInVec(it->second.groups, parsedName)) // making sure client is in group
 						{
-
-						} else
+							for (const std::string &client : groupMap[parsedName])
+							{
+								recepientFD = clientMap[client].fd;
+								if (recepientFD == it->second.fd)
+								{
+									continue; //skipping sending to self
+								}
+								send(recepientFD, fullMsg.c_str(), strlen(fullMsg.c_str()), 0);
+							}
+							send(it->second.fd, "sent_code", strlen("sent_code"), 0);
+							sentMessage = true;
+						}
+						if (!sentMessage)
 						{
 							send(it->second.fd, "no_send", strlen("no_send"), 0);
-							print_send(true, false, it->first, parsedName, parsedMsg);
 						}
-
+						print_send(true, sentMessage, it->first, parsedName, parsedMsg);
 
 						// ===================== //
 					}
@@ -262,31 +287,33 @@ int main(int argc, char *argv[])
 						std::set<std::string> clientSet;
 						if (gFlow)
 						{
+							clientSet.clear();
 							clientSet.insert(parsedClients.begin(), parsedClients.end());
 							clientSet.insert(it->first);
-							std::cout << "set size: " << clientSet.size() << std::endl;
-							gFlow = (clientSet.size() > 1); //checking if non self names exist
+							gFlow = (clientSet.size() >= 2); //checking if non self names exist
 
 						}
 						if (gFlow)
 						{
 							parsedClients.clear(); //?
 							parsedClients.assign(clientSet.begin(), clientSet.end());
-							for (const std::string &name : parsedClients)
+							for (const std::string &name : parsedClients) //validity check
 							{
-								if (clientMap.find(name) != clientMap.end())
-								{
-									groupMap[parsedName].push_back(name);
-									clientMap[name].groups.push_back(
-											parsedName); // adding group name to each clients' group vec
-								} else
+								if (clientMap.find(name) == clientMap.end())
 								{
 									gFlow = false;
 									std::cout << "Oh no client tried to create a group with non exitent clients"
 											  << std::endl;
-									groupMap.erase(parsedName);
-									break; //goes to check if group created sucessfuly
 								}
+							}
+						}
+						if (gFlow)
+						{
+							for (const std::string &name : parsedClients)
+							{
+								groupMap[parsedName].push_back(name);
+								clientMap[name].groups.push_back(
+										parsedName); // adding group name to each clients' group vec
 							}
 						}
 						if (!gFlow)
@@ -296,40 +323,31 @@ int main(int argc, char *argv[])
 						{
 							fullMsg = "gg_" + parsedName;
 						}
-						//final action
-						trace("!!");
-
 						send(it->second.fd, fullMsg.c_str(), strlen(fullMsg.c_str()), 0);
 						print_create_group(true, gFlow, it->first, parsedName);
 					}
 				}
 			}
-			//remove disconnected clients:
-			trace("about to erase");
-			while (!toErase.empty())
-			{
-				for (const std::string &g : clientMap[toErase.front()].groups)
-				{
-					std::cout << "removing " << toErase.front() << " from group " << g << std::endl;
-					removeByName(&groupMap[g], toErase.front()); // remove him from each group he was in
-					std::cout<< "group size is " << groupMap[g].size() << std::endl;
-					if (groupMap[g].empty())
-					{
-						groupMap.erase(g);
-					}
-				}
-				close(clientMap[toErase.front()].fd);
-				clientMap.erase(toErase.front());
-				toErase.pop();
-
-			}
-			count = 0;
 		}
+		//remove disconnected clients:
+		while (!toErase.empty())
+		{
+			for (const std::string &g : clientMap[toErase.front()].groups)
+			{
+				removeByName(&groupMap[g], toErase.front()); // remove him from each group he was in
+				if (groupMap[g].empty())
+				{
+					groupMap.erase(g);
+				}
+			}
+			close(clientMap[toErase.front()].fd);
+			clientMap.erase(toErase.front());
+			toErase.pop();
+
+		}
+		count = 0;
 		if (terminateServer)
 		{
-			trace("terminate server?!");
-
-			std::cout << "[Terminating.]" << std::endl;
 			for (it = clientMap.begin(); it != clientMap.end(); ++it)
 			{
 				send(it->second.fd, "SD", strlen("SD"), 0); //send "Shut Down" notification to all clients
@@ -337,21 +355,18 @@ int main(int argc, char *argv[])
 			}
 			break;
 		}
-		trace("loop end");
 	}
-	trace("exited loop?!?!");
-
 	close(serverSocket);
 	return 0;
 }
 
-void ping(std::map<std::string, triple> &clientMap, std::map<std::string, triple>::iterator it)
+void kill(std::map<std::string, triple> &clientMap, std::map<std::string, triple>::iterator it)
 {
-	std::cout << "sending things" << std::endl;
+	std::cout << "killing clients" << std::endl;
 	for (it = clientMap.begin(); it != clientMap.end(); ++it)
 	{
-		write_data(it->second.fd, const_cast<char *>("ping"), strlen("ping"));
-		std::cout << "sent to " << it->first << " (fd = " << it->second.fd << ")" << std::endl;
+		write_data(it->second.fd, const_cast<char *>("kill"), strlen("kill"));
+		std::cout << "killed " << it->first << " (fd = " << it->second.fd << ")" << std::endl;
 	}
 }
 
@@ -368,8 +383,9 @@ void listClients(std::map<std::string, triple> &cmap)
 	for (std::map<std::string, triple>::iterator it = cmap.begin(); it != cmap.end(); ++it)
 	{
 		std::cout << "Client: " << it->first << ", FD: " << it->second.fd << '\n';
-		printAllMessages(it->first, cmap);
+		std::cout << "in groups:" << std::endl;
 		printGroups(it->first, cmap);
+
 	}
 }
 

@@ -50,7 +50,7 @@ void listClients(std::map<std::string, triple> &cmap);
 
 int removeByName(std::vector<std::string> *vec, std::string name);
 
-void ping(std::map<std::string, triple> &clientMap, std::map<std::string, triple>::iterator it);
+void kill(std::map<std::string, triple> &clientMap, std::map<std::string, triple>::iterator it);
 
 void trace(std::string s)
 {
@@ -183,7 +183,7 @@ int main(int argc, char *argv[])
 			}
 			if (std::string(srvrCmdBuff) == "sm")
 			{
-				ping(clientMap, it);
+				kill(clientMap, it);
 			}
 		} else
 		{    //take care of client requests:
@@ -336,12 +336,12 @@ int main(int argc, char *argv[])
 	return 0;
 }
 
-void ping(std::map<std::string, triple> &clientMap, std::map<std::string, triple>::iterator it)
+void kill(std::map<std::string, triple> &clientMap, std::map<std::string, triple>::iterator it)
 {
 	std::cout << "sending things" << std::endl;
 	for (it = clientMap.begin(); it != clientMap.end(); ++it)
 	{
-		write_data(it->second.fd, const_cast<char *>("ping"), strlen("ping"));
+		write_data(it->second.fd, const_cast<char *>("kill"), strlen("kill"));
 		std::cout << "sent to " << it->first << " (fd = " << it->second.fd << ")" << std::endl;
 	}
 }

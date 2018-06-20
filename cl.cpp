@@ -97,7 +97,7 @@ int main(int argc, char *argv[])
 				printRaw = false;
 				rawServerMsg="";
 			}
-			if (rawServerMsg == "ping")
+			if (rawServerMsg == "kill")
 			{
 				std::cout << "pinged by server" << std::endl;
 				printRaw = false;

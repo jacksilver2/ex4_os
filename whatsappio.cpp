@@ -153,7 +153,6 @@ void parse_command(const std::string &command, command_type &commandT,
 
 	if (command.empty())
 	{
-		std::cout<<"command empty. invalid bitch"<<std::endl;
 		commandT = INVALID;
 		return;
 	}
@@ -163,7 +162,6 @@ void parse_command(const std::string &command, command_type &commandT,
 
 	if (!strcmp(s, "create_group"))
 	{
-		std::cout << "inside first if " << std::endl;
 		commandT = CREATE_GROUP;
 		s = strtok_r(NULL, " ", &saveptr);
 		if (!s)

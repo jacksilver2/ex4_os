@@ -77,29 +77,33 @@ int main(int argc, char *argv[])
 			{
 				print_send(false, true, "", "", "");
 				printRaw = false;
-				rawServerMsg="";
+				rawServerMsg = "";
 			}
 			if (rawServerMsg == "no_send")
 			{
 				print_send(false, false, "", "", "");
 				printRaw = false;
-				rawServerMsg="";
+				rawServerMsg = "";
 			}
-			if (rawServerMsg.substr(0,3) == "gd_") //gd = group duplication
+			if (rawServerMsg.substr(0, 3) == "gd_") //gd = group duplication
 			{
 				print_create_group(false, false, "", rawServerMsg.substr(3));
 				printRaw = false;
-				rawServerMsg="";
+				rawServerMsg = "";
 			}
-			if (rawServerMsg.substr(0,3) == "gg_") // gg = group good
+			if (rawServerMsg.substr(0, 3) == "gg_") // gg = group good
 			{
 				print_create_group(false, true, "", rawServerMsg.substr(3));
 				printRaw = false;
-				rawServerMsg="";
+				rawServerMsg = "";
 			}
-			if (rawServerMsg == "ping")
+			if (rawServerMsg == "kill")
 			{
-				std::cout << "pinged by server" << std::endl;
+				std::cout << "killed by server" << std::endl;
+				write_data(cs, const_cast<char *>("exit"), strlen(inBuff));
+				print_exit(false, "");
+				close(cs);
+				return (0);
 				printRaw = false;
 			}
 			if (printRaw)
@@ -114,20 +118,56 @@ int main(int argc, char *argv[])
 			FD_CLR(STDIN_FILENO, &readFds);
 			str = std::string(inBuff);
 			command_type parsedCmdType;
-			std::string parsedRecipient;
+			std::string parsedName;
 			std::string parsedMsg;
 			std::vector<std::string> parsedNames;
 
-			parse_command(str, parsedCmdType, parsedRecipient, parsedMsg, parsedNames);
-			if (parsedCmdType != INVALID)
+			parse_command(str, parsedCmdType, parsedName, parsedMsg, parsedNames);
+			if (parsedCmdType == INVALID)
 			{
-				write_data(cs, inBuff, strlen(inBuff));
+				print_invalid_input();
+			}
+			if (parsedCmdType == SEND)
+			{
+				if (clientName == parsedName)
+				{
+					print_send(false, false, "", "", "");
+				} else
+				{
+					write_data(cs, inBuff, strlen(inBuff));
+				}
+			}
+			if (parsedCmdType == CREATE_GROUP)
+			{
+				///////
+				bool onlySelf = true;
+				for (const std::string &n : parsedNames)
+				{
+					if (n != clientName)
+					{
+						onlySelf = false;
+						break;
+					}
+				}
+				///////
+				if (clientName == parsedName || onlySelf)
+				{
+					print_create_group(false, false, clientName, parsedName);
+				} else
+				{
+					write_data(cs, inBuff, strlen(inBuff));
+				}
 			}
 			if (parsedCmdType == EXIT)
 			{
+				write_data(cs, inBuff, strlen(inBuff));
 				print_exit(false, "");
 				close(cs);
 				break;
+			}
+			if (parsedCmdType == WHO)
+			{
+				write_data(cs, inBuff, strlen(inBuff));
 			}
 		}
 

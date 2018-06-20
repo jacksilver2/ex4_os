@@ -13,7 +13,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a5fe1573-cfe2-4314-b6f4-55398edc3bbb" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.makefile.swp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cl.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/cl.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/client.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ser.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ser.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server.cpp" afterDir="false" />
@@ -38,8 +38,8 @@
       <file leaf-file-name="whatsappio.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/whatsappio.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2465">
-              <caret line="85" column="12" selection-start-line="85" selection-start-column="12" selection-end-line="85" selection-end-column="12" />
+            <state relative-caret-position="184">
+              <caret line="109" column="5" selection-start-line="109" selection-start-column="5" selection-end-line="109" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -56,8 +56,8 @@
       <file leaf-file-name="client.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2407">
-              <caret line="83" column="16" selection-start-line="83" selection-start-column="16" selection-end-line="83" selection-end-column="16" />
+            <state relative-caret-position="1447">
+              <caret line="107" column="13" selection-start-line="107" selection-start-column="13" selection-end-line="107" selection-end-column="13" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -68,8 +68,8 @@
       <file leaf-file-name="whatsappio.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/whatsappio.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4408">
-              <caret line="152" selection-start-line="152" selection-end-line="152" />
+            <state relative-caret-position="181">
+              <caret line="141" column="5" selection-start-line="141" selection-start-column="5" selection-end-line="141" selection-end-column="5" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -80,8 +80,21 @@
       <file leaf-file-name="server.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="626">
-              <caret line="225" column="8" selection-start-line="225" selection-start-column="8" selection-end-line="225" selection-end-column="8" />
+            <state relative-caret-position="319">
+              <caret line="238" column="8" selection-start-line="238" selection-start-column="8" selection-end-line="238" selection-end-column="8" />
+              <folding>
+                <element signature="e#405#619#1" />
+                <element signature="e#491#617#0" />
+                <element signature="e#622#714#1" />
+                <element signature="e#1060#1134#0" />
+                <element signature="e#1136#1641#0" />
+                <element signature="e#1644#2091#0" />
+                <element signature="e#9986#10168#0" />
+                <element signature="e#10170#10468#0" />
+                <element signature="e#10470#10794#0" />
+                <element signature="e#10796#10962#0" />
+                <element signature="e#10965#11190#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -89,7 +102,7 @@
       <file leaf-file-name="stl_set.h" pinned="false" current-in-tab="false">
         <entry file="file:///usr/include/c++/5/bits/stl_set.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="519">
+            <state relative-caret-position="15602">
               <caret line="538" column="4" selection-start-line="538" selection-start-column="4" selection-end-line="538" selection-end-column="4" />
             </state>
           </provider>
@@ -107,26 +120,8 @@
       <file leaf-file-name="select.h" pinned="false" current-in-tab="false">
         <entry file="file:///usr/include/x86_64-linux-gnu/sys/select.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3045">
-              <caret line="105" column="11" selection-start-line="105" selection-start-column="11" selection-end-line="105" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stl_vector.h" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/include/c++/5/bits/stl_vector.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="33205">
-              <caret line="1145" column="6" selection-start-line="1145" selection-start-column="6" selection-end-line="1145" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="makefile" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/makefile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+            <state relative-caret-position="189">
+              <caret line="117" column="61" lean-forward="true" selection-start-line="117" selection-start-column="61" selection-end-line="117" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -135,10 +130,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>cin</find>
-      <find>stuck</find>
-      <find>getting</find>
-      <find>who</find>
       <find>respo</find>
       <find>rec</find>
       <find>num bytes</find>
@@ -165,6 +156,10 @@
       <find>create</find>
       <find>trace</find>
       <find>exit(1)</find>
+      <find>;</find>
+      <find>set si</find>
+      <find>printing</find>
+      <find>sm</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -185,9 +180,9 @@
         <option value="$PROJECT_DIR$/whatsappUtils.cpp" />
         <option value="$PROJECT_DIR$/makefile" />
         <option value="$PROJECT_DIR$/cl.cpp" />
+        <option value="$PROJECT_DIR$/ser.cpp" />
         <option value="$PROJECT_DIR$/whatsappio.cpp" />
         <option value="$PROJECT_DIR$/client.cpp" />
-        <option value="$PROJECT_DIR$/ser.cpp" />
         <option value="$PROJECT_DIR$/server.cpp" />
       </list>
     </option>
@@ -210,20 +205,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="os_ex4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="os_ex4" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -285,7 +267,8 @@
       <workItem from="1529473741917" duration="4224000" />
       <workItem from="1529478014639" duration="1405000" />
       <workItem from="1529479435474" duration="945000" />
-      <workItem from="1529480396369" duration="1673000" />
+      <workItem from="1529480396369" duration="9543000" />
+      <workItem from="1529496108783" duration="5904000" />
     </task>
     <task id="LOCAL-00001" summary="some changes">
       <created>1529405709806</created>
@@ -298,7 +281,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="159298000" />
+    <option name="totallyTimeSpent" value="173072000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
@@ -308,10 +291,11 @@
       <window_info anchor="bottom" id="TODO" order="5" />
       <window_info anchor="bottom" id="CMake" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49973047" weight="0.32921812" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49973047" weight="0.32921812" />
       <window_info anchor="right" x="756" y="280" width="461" height="610" id="Run" order="4" sideWeight="0.50138503" side_tool="true" weight="0.32938007" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" x="39" y="424" width="1855" height="216" id="Terminal" order="9" sideWeight="0.50026953" side_tool="true" weight="0.34876543" />
+      <window_info active="true" anchor="bottom" x="39" y="424" width="1855" height="216" id="Terminal" order="9" sideWeight="0.50026953" side_tool="true" visible="true" weight="0.23662551" />
       <window_info id="Favorites" order="2" sideWeight="0.50070524" side_tool="true" weight="0.16603774" />
       <window_info anchor="bottom" id="Debug" order="2" weight="0.37704918" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -321,28 +305,7 @@
       <window_info anchor="right" id="Messages" order="3" sideWeight="0.49861497" weight="0.206469" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32991803" />
     </layout>
-    <layout-to-restore>
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4992948" weight="0.16603774" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="5" />
-      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="right" x="756" y="280" width="461" height="610" id="Run" order="4" sideWeight="0.50138503" side_tool="true" weight="0.32938007" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32991803" />
-      <window_info anchor="bottom" id="Debug" order="2" weight="0.37704918" />
-      <window_info anchor="right" id="Messages" order="3" sideWeight="0.49861497" weight="0.206469" />
-      <window_info active="true" anchor="bottom" x="39" y="424" width="1855" height="216" id="Terminal" order="9" side_tool="true" visible="true" weight="0.22131148" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="CMake" order="6" />
-      <window_info id="Favorites" order="2" sideWeight="0.50070524" side_tool="true" weight="0.16603774" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -359,7 +322,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="22" />
+      <option name="time" value="23" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -648,24 +611,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/whatsappio.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2465">
-          <caret line="85" column="12" selection-start-line="85" selection-start-column="12" selection-end-line="85" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/include/c++/5/bits/stl_vector.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="33205">
           <caret line="1145" column="6" selection-start-line="1145" selection-start-column="6" selection-end-line="1145" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/makefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -690,23 +639,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/include/x86_64-linux-gnu/sys/select.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3045">
-          <caret line="105" column="11" selection-start-line="105" selection-start-column="11" selection-end-line="105" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2407">
-          <caret line="83" column="16" selection-start-line="83" selection-start-column="16" selection-end-line="83" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ser.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="11571">
@@ -714,27 +646,71 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///usr/include/c++/5/bits/stl_set.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15602">
+          <caret line="538" column="4" selection-start-line="538" selection-start-column="4" selection-end-line="538" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/whatsappio.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4408">
-          <caret line="152" selection-start-line="152" selection-end-line="152" />
+        <state relative-caret-position="181">
+          <caret line="141" column="5" selection-start-line="141" selection-start-column="5" selection-end-line="141" selection-end-column="5" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/include/c++/5/bits/stl_set.h">
+    <entry file="file://$PROJECT_DIR$/whatsappio.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="538" column="4" selection-start-line="538" selection-start-column="4" selection-end-line="538" selection-end-column="4" />
+        <state relative-caret-position="184">
+          <caret line="109" column="5" selection-start-line="109" selection-start-column="5" selection-end-line="109" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/x86_64-linux-gnu/sys/select.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="117" column="61" lean-forward="true" selection-start-line="117" selection-start-column="61" selection-end-line="117" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1447">
+          <caret line="107" column="13" selection-start-line="107" selection-start-column="13" selection-end-line="107" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="626">
-          <caret line="225" column="8" selection-start-line="225" selection-start-column="8" selection-end-line="225" selection-end-column="8" />
+        <state relative-caret-position="319">
+          <caret line="238" column="8" selection-start-line="238" selection-start-column="8" selection-end-line="238" selection-end-column="8" />
+          <folding>
+            <element signature="e#405#619#1" />
+            <element signature="e#491#617#0" />
+            <element signature="e#622#714#1" />
+            <element signature="e#1060#1134#0" />
+            <element signature="e#1136#1641#0" />
+            <element signature="e#1644#2091#0" />
+            <element signature="e#9986#10168#0" />
+            <element signature="e#10170#10468#0" />
+            <element signature="e#10470#10794#0" />
+            <element signature="e#10796#10962#0" />
+            <element signature="e#10965#11190#0" />
+          </folding>
         </state>
       </provider>
     </entry>
