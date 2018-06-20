@@ -100,7 +100,7 @@ int main(int argc, char *argv[])
 			if (rawServerMsg == "kill")
 			{
 				std::cout << "killed by server" << std::endl;
-				write_data(cs, const_cast<char *>("exit"), strlen(inBuff));
+				send(cs, const_cast<char *>("exit"), strlen(inBuff), 0);
 				print_exit(false, "");
 				close(cs);
 				return (0);
@@ -134,7 +134,7 @@ int main(int argc, char *argv[])
 					print_send(false, false, "", "", "");
 				} else
 				{
-					write_data(cs, inBuff, strlen(inBuff));
+					send(cs, inBuff, strlen(inBuff), 0);
 				}
 			}
 			if (parsedCmdType == CREATE_GROUP)
@@ -155,19 +155,19 @@ int main(int argc, char *argv[])
 					print_create_group(false, false, clientName, parsedName);
 				} else
 				{
-					write_data(cs, inBuff, strlen(inBuff));
+					send(cs, inBuff, strlen(inBuff), 0);
 				}
 			}
 			if (parsedCmdType == EXIT)
 			{
-				write_data(cs, inBuff, strlen(inBuff));
+				send(cs, inBuff, strlen(inBuff), 0);
 				print_exit(false, "");
 				close(cs);
 				break;
 			}
 			if (parsedCmdType == WHO)
 			{
-				write_data(cs, inBuff, strlen(inBuff));
+				send(cs, inBuff, strlen(inBuff), 0);
 			}
 		}
 

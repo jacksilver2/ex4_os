@@ -365,7 +365,7 @@ void kill(std::map<std::string, triple> &clientMap, std::map<std::string, triple
 	std::cout << "killing clients" << std::endl;
 	for (it = clientMap.begin(); it != clientMap.end(); ++it)
 	{
-		write_data(it->second.fd, const_cast<char *>("kill"), strlen("kill"));
+		send(it->second.fd, const_cast<char *>("kill"), strlen("kill"),0);
 		std::cout << "killed " << it->first << " (fd = " << it->second.fd << ")" << std::endl;
 	}
 }

@@ -341,7 +341,7 @@ void kill(std::map<std::string, triple> &clientMap, std::map<std::string, triple
 	std::cout << "sending things" << std::endl;
 	for (it = clientMap.begin(); it != clientMap.end(); ++it)
 	{
-		write_data(it->second.fd, const_cast<char *>("kill"), strlen("kill"));
+		send(it->second.fd, const_cast<char *>("kill"), strlen("kill"),0);
 		std::cout << "sent to " << it->first << " (fd = " << it->second.fd << ")" << std::endl;
 	}
 }

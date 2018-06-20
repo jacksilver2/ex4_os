@@ -77,25 +77,25 @@ int main(int argc, char *argv[])
 			{
 				print_send(false, true, "", "", "");
 				printRaw = false;
-				rawServerMsg="";
+				rawServerMsg = "";
 			}
 			if (rawServerMsg == "no_send")
 			{
 				print_send(false, false, "", "", "");
 				printRaw = false;
-				rawServerMsg="";
+				rawServerMsg = "";
 			}
-			if (rawServerMsg.substr(0,3) == "gd_") //gd = group duplication
+			if (rawServerMsg.substr(0, 3) == "gd_") //gd = group duplication
 			{
 				print_create_group(false, false, "", rawServerMsg.substr(3));
 				printRaw = false;
-				rawServerMsg="";
+				rawServerMsg = "";
 			}
-			if (rawServerMsg.substr(0,3) == "gg_") // gg = group good
+			if (rawServerMsg.substr(0, 3) == "gg_") // gg = group good
 			{
 				print_create_group(false, true, "", rawServerMsg.substr(3));
 				printRaw = false;
-				rawServerMsg="";
+				rawServerMsg = "";
 			}
 			if (rawServerMsg == "kill")
 			{
@@ -121,7 +121,7 @@ int main(int argc, char *argv[])
 			parse_command(str, parsedCmdType, parsedRecipient, parsedMsg, parsedNames);
 			if (parsedCmdType != INVALID)
 			{
-				write_data(cs, inBuff, strlen(inBuff));
+				send(cs, inBuff, strlen(inBuff), 0);
 				if (parsedCmdType == EXIT)
 				{
 					print_exit(false, "");

@@ -13,6 +13,7 @@
 #include <sstream>
 #include "stdio.h"
 #include "whatsappUtils.h"
+#include "whatsappio.h"
 
 #define MAXHOSTNAME 256
 
@@ -45,6 +46,8 @@ int establish(unsigned short portnum)
 	/*create socket*/
 	if ((s = socket(AF_INET, SOCK_STREAM, 0)) < 0)
 	{
+		print_error("socket",errno);
+
 		return (-1);
 	}
 
@@ -52,11 +55,16 @@ int establish(unsigned short portnum)
 	int tmp = bind(s, (struct sockaddr *) &sa, sizeof(struct sockaddr_in));
 	if (tmp < 0)
 	{
-		perror("BIND FAIL: ");
+		print_error("bind",errno);
 		close(s);
 		return (-1);
 	}
-	listen(s, 10);
+	if(listen(s, 10)<0)
+	{
+		print_error("listen",errno);
+		close (s);
+		return -1;
+	}
 	return (s);
 
 }
@@ -67,7 +75,7 @@ int get_connection(int s)
 	int t; /* socket of connection */
 	if ((t = accept(s, NULL, NULL)) < 0)
 	{
-		perror("get_connection(): ");
+		print_error("accept",errno);
 		return (-1);
 	}
 	return t;
@@ -91,14 +99,15 @@ int call_socket(char *hostname, u_short portnum)
 
 	if ((s = socket(hp->h_addrtype, SOCK_STREAM, 0)) < 0)
 	{
-		perror("socket(): ");
+		print_error("socket",errno);
 		return (-1);
 	}
 
 	if (connect(s, (struct sockaddr *) &sa, sizeof(sa)) < 0)
 	{
 		close(s);
-		perror("connect(): ");
+		print_error("connect",errno);
+
 		return (-1);
 	}
 	return (s);
@@ -112,21 +121,22 @@ int call_socket_by_address(char *ip, u_short portnum)
 	memset(&sa, 0, sizeof(sa));
 	if (inet_aton(ip, &sa.sin_addr) == 0)
 	{
-		perror("inet_aton: ");
+		print_error("inet_aton",errno);
+
 	}
 	sa.sin_family = AF_INET;
 	sa.sin_port = htons((u_short) portnum);
 
 	if ((s = socket(AF_INET, SOCK_STREAM, 0)) < 0)
 	{
-		perror("socket(): ");
+		print_error("socket",errno);
 		return (-1);
 	}
 
 	if (connect(s, (struct sockaddr *) &sa, sizeof(sa)) < 0)
 	{
 		close(s);
-		perror("connect(): ");
+		print_error("connect",errno);
 		return (-1);
 	}
 	return (s);
@@ -134,7 +144,6 @@ int call_socket_by_address(char *ip, u_short portnum)
 
 int read_data(int s, char *buf, size_t n)
 {
-//	std::cout << "reading some data..." << std::endl;
 
 	int bcount; //total byte count that was read
 	ssize_t br; //bytes that are read at each pass
@@ -155,14 +164,11 @@ int read_data(int s, char *buf, size_t n)
 			break;
 		}
 	}
-//	std::cout << "i've read " << bcount << " bytes" << std::endl;
-
 	return (bcount);
 }
 
 int write_data(int s, char *buf, size_t n)
 {
-//	estd::cout << "writing some data..." << std::endl;
 	int bcount; //total byte count that was read
 	ssize_t br; //bytes that are read at each pass
 	bcount = 0;
