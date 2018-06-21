@@ -19,15 +19,6 @@
 fd_set fdSet;
 fd_set readFds;
 
-static inline bool is_not_alnum_space(char c)
-{
-	return !(isalpha(c) || isdigit(c) || (c == ' '));
-}
-
-bool string_is_valid(const std::string &str)
-{
-	return find_if(str.begin(), str.end(), is_not_alnum_space) == str.end();
-}
 int main(int argc, char *argv[])
 {
 	if (argc!=4 || !string_is_valid(std::string(argv[1])))
@@ -43,6 +34,7 @@ int main(int argc, char *argv[])
 	if (cs < 0)
 	{
 		print_fail_connection();
+		exit(1);
 	}
 
 	char inBuff[256];
@@ -155,7 +147,7 @@ int main(int argc, char *argv[])
 					}
 				}
 				///////
-				if (clientName == parsedName || onlySelf)
+				if (clientName == parsedName || onlySelf || !string_is_valid(parsedName))
 				{
 					print_create_group(false, false, clientName, parsedName);
 				} else

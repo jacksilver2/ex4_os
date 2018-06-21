@@ -15,6 +15,8 @@ int write_data(int s, char *buf, size_t n);
 
 int read_data(int s, char *buf, size_t n);
 
+bool string_is_valid(const std::string &str);
+
 #define OS_EX4_WHATSAPPUTILS_H
 
 #endif //OS_EX4_WHATSAPPUTILS_H

@@ -14,7 +14,7 @@
 #include "stdio.h"
 #include "whatsappUtils.h"
 #include "whatsappio.h"
-
+#include <algorithm>
 #define MAXHOSTNAME 256
 
 
@@ -28,8 +28,6 @@ int establish(unsigned short portnum)
 
 	gethostname(myname, MAXHOSTNAME); //filling up myname var
 	hp = gethostbyname(myname); // filling the hostent struct with what is
-	//returned by gethosbyname
-	std::cout << "Host name: " << hp->h_name << std::endl;
 	if (hp == NULL)
 	{
 		return -1;
@@ -40,10 +38,10 @@ int establish(unsigned short portnum)
 
 	/*this is our host address*/
 	memcpy(&sa.sin_addr, hp->h_addr, static_cast<size_t>(hp->h_length));
-	std::cout << "Host IP: " << inet_ntoa(sa.sin_addr) << std::endl;
+	//std::cout << "Host IP: " << inet_ntoa(sa.sin_addr) << std::endl;
 	/*this is port number*/
 	sa.sin_port = htons(portnum);
-	std::cout << "Sockets' port: " << ntohs(sa.sin_port) << std::endl;
+	//std::cout << "Sockets' port: " << ntohs(sa.sin_port) << std::endl;
 
 	/*create socket*/
 	if ((s = socket(AF_INET, SOCK_STREAM, 0)) < 0)
@@ -191,4 +189,13 @@ int write_data(int s, char *buf, size_t n)
 	}
 //	std::cout << "wrote " << bcount << " bytes" << std::endl;
 	return (bcount);
+}
+bool is_not_alnum_space(char c)
+{
+	return !(isalpha(c) || isdigit(c) || (c == ' '));
+}
+
+bool string_is_valid(const std::string &str)
+{
+	return find_if(str.begin(), str.end(), is_not_alnum_space) == str.end();
 }

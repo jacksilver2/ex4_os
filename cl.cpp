@@ -30,6 +30,7 @@ int main(int argc, char *argv[])
 	if (cs < 0)
 	{
 		print_fail_connection(); //todo is this good?
+		exit(1);
 	}
 
 	char inBuff[256];
@@ -122,7 +123,7 @@ int main(int argc, char *argv[])
 			if (parsedCmdType != INVALID)
 			{
 				send(cs, inBuff, strlen(inBuff), 0);
-				if (parsedCmdType == EXIT_CODE)
+				if (parsedCmdType == EXIT)
 				{
 					print_exit(false, "");
 					close(cs);

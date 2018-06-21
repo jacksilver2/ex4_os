@@ -21,7 +21,7 @@
 
 #define MAX_CLIENTS 30
 
-#define COOL_FEATURES false
+#define COOL_FEATURES false //TODO : set false
 
 struct message
 {
@@ -115,11 +115,9 @@ bool foundInVec(const std::vector<std::string> &vec, std::string value)
 }
 
 
-
-
 int main(int argc, char *argv[])
 {
-	if (argc!=2)
+	if (argc != 2)
 	{
 		print_server_usage();
 		exit(1);
@@ -129,8 +127,6 @@ int main(int argc, char *argv[])
 	std::vector<std::string> vecOfClientNames;
 	u_short portnum = static_cast<u_short>(atoi(argv[1]));
 	int serverSocket = establish(portnum);
-//	std::cout << "serverSocket: " << serverSocket << std::endl;
-	int requests = 0;
 	char inBuff[256];
 	ssize_t numBytesRead = 0;
 	int newConnection;
@@ -166,8 +162,7 @@ int main(int argc, char *argv[])
 			numBytesRead = recv(newConnection, inBuff, 256, 0);
 			inBuff[numBytesRead] = '\0';
 			std::string rawInput = std::string(inBuff);
-//			std::cout << "raw input: [" << rawInput << "]" << std::endl;
-			if (clientMap.find(rawInput) != clientMap.end())
+			if (clientMap.find(rawInput) != clientMap.end() || groupMap.find(rawInput) != groupMap.end())
 			{
 				send(newConnection, DUP_CODE, strlen(DUP_CODE), 0);
 			} else
@@ -279,6 +274,10 @@ int main(int argc, char *argv[])
 					if (parsedCmdType ==
 						CREATE_GROUP)
 					{
+						if (!string_is_valid(parsedName))
+						{
+							gFlow = false;
+						}
 						if (groupMap.find(parsedName) != groupMap.end() ||
 							clientMap.find(parsedName) != clientMap.end() ||
 							parsedClients.empty())
@@ -359,7 +358,7 @@ void kill(std::map<std::string, triple> &clientMap)
 	std::map<std::string, triple>::iterator it;
 	for (it = clientMap.begin(); it != clientMap.end(); ++it)
 	{
-		send(it->second.fd, const_cast<char *>(KILL), strlen(KILL),0);
+		send(it->second.fd, const_cast<char *>(KILL), strlen(KILL), 0);
 	}
 }
 
