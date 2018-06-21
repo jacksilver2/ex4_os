@@ -150,32 +150,32 @@ cl.cpp.s:
 	$(MAKE) -f CMakeFiles/os_ex4.dir/build.make CMakeFiles/os_ex4.dir/cl.cpp.s
 .PHONY : cl.cpp.s
 
-client.o: client.cpp.o
+helper.o: helper.cpp.o
 
-.PHONY : client.o
+.PHONY : helper.o
 
 # target to build an object file
-client.cpp.o:
-	$(MAKE) -f CMakeFiles/os_ex4.dir/build.make CMakeFiles/os_ex4.dir/client.cpp.o
-.PHONY : client.cpp.o
+helper.cpp.o:
+	$(MAKE) -f CMakeFiles/os_ex4.dir/build.make CMakeFiles/os_ex4.dir/helper.cpp.o
+.PHONY : helper.cpp.o
 
-client.i: client.cpp.i
+helper.i: helper.cpp.i
 
-.PHONY : client.i
+.PHONY : helper.i
 
 # target to preprocess a source file
-client.cpp.i:
-	$(MAKE) -f CMakeFiles/os_ex4.dir/build.make CMakeFiles/os_ex4.dir/client.cpp.i
-.PHONY : client.cpp.i
+helper.cpp.i:
+	$(MAKE) -f CMakeFiles/os_ex4.dir/build.make CMakeFiles/os_ex4.dir/helper.cpp.i
+.PHONY : helper.cpp.i
 
-client.s: client.cpp.s
+helper.s: helper.cpp.s
 
-.PHONY : client.s
+.PHONY : helper.s
 
 # target to generate assembly for a file
-client.cpp.s:
-	$(MAKE) -f CMakeFiles/os_ex4.dir/build.make CMakeFiles/os_ex4.dir/client.cpp.s
-.PHONY : client.cpp.s
+helper.cpp.s:
+	$(MAKE) -f CMakeFiles/os_ex4.dir/build.make CMakeFiles/os_ex4.dir/helper.cpp.s
+.PHONY : helper.cpp.s
 
 main.o: main.cpp.o
 
@@ -231,33 +231,6 @@ ser.cpp.s:
 	$(MAKE) -f CMakeFiles/os_ex4.dir/build.make CMakeFiles/os_ex4.dir/ser.cpp.s
 .PHONY : ser.cpp.s
 
-server.o: server.cpp.o
-
-.PHONY : server.o
-
-# target to build an object file
-server.cpp.o:
-	$(MAKE) -f CMakeFiles/os_ex4.dir/build.make CMakeFiles/os_ex4.dir/server.cpp.o
-.PHONY : server.cpp.o
-
-server.i: server.cpp.i
-
-.PHONY : server.i
-
-# target to preprocess a source file
-server.cpp.i:
-	$(MAKE) -f CMakeFiles/os_ex4.dir/build.make CMakeFiles/os_ex4.dir/server.cpp.i
-.PHONY : server.cpp.i
-
-server.s: server.cpp.s
-
-.PHONY : server.s
-
-# target to generate assembly for a file
-server.cpp.s:
-	$(MAKE) -f CMakeFiles/os_ex4.dir/build.make CMakeFiles/os_ex4.dir/server.cpp.s
-.PHONY : server.cpp.s
-
 test.o: test.cpp.o
 
 .PHONY : test.o
@@ -284,6 +257,60 @@ test.s: test.cpp.s
 test.cpp.s:
 	$(MAKE) -f CMakeFiles/os_ex4.dir/build.make CMakeFiles/os_ex4.dir/test.cpp.s
 .PHONY : test.cpp.s
+
+whatsappClient.o: whatsappClient.cpp.o
+
+.PHONY : whatsappClient.o
+
+# target to build an object file
+whatsappClient.cpp.o:
+	$(MAKE) -f CMakeFiles/os_ex4.dir/build.make CMakeFiles/os_ex4.dir/whatsappClient.cpp.o
+.PHONY : whatsappClient.cpp.o
+
+whatsappClient.i: whatsappClient.cpp.i
+
+.PHONY : whatsappClient.i
+
+# target to preprocess a source file
+whatsappClient.cpp.i:
+	$(MAKE) -f CMakeFiles/os_ex4.dir/build.make CMakeFiles/os_ex4.dir/whatsappClient.cpp.i
+.PHONY : whatsappClient.cpp.i
+
+whatsappClient.s: whatsappClient.cpp.s
+
+.PHONY : whatsappClient.s
+
+# target to generate assembly for a file
+whatsappClient.cpp.s:
+	$(MAKE) -f CMakeFiles/os_ex4.dir/build.make CMakeFiles/os_ex4.dir/whatsappClient.cpp.s
+.PHONY : whatsappClient.cpp.s
+
+whatsappServer.o: whatsappServer.cpp.o
+
+.PHONY : whatsappServer.o
+
+# target to build an object file
+whatsappServer.cpp.o:
+	$(MAKE) -f CMakeFiles/os_ex4.dir/build.make CMakeFiles/os_ex4.dir/whatsappServer.cpp.o
+.PHONY : whatsappServer.cpp.o
+
+whatsappServer.i: whatsappServer.cpp.i
+
+.PHONY : whatsappServer.i
+
+# target to preprocess a source file
+whatsappServer.cpp.i:
+	$(MAKE) -f CMakeFiles/os_ex4.dir/build.make CMakeFiles/os_ex4.dir/whatsappServer.cpp.i
+.PHONY : whatsappServer.cpp.i
+
+whatsappServer.s: whatsappServer.cpp.s
+
+.PHONY : whatsappServer.s
+
+# target to generate assembly for a file
+whatsappServer.cpp.s:
+	$(MAKE) -f CMakeFiles/os_ex4.dir/build.make CMakeFiles/os_ex4.dir/whatsappServer.cpp.s
+.PHONY : whatsappServer.cpp.s
 
 whatsappUtils.o: whatsappUtils.cpp.o
 
@@ -351,21 +378,24 @@ help:
 	@echo "... cl.o"
 	@echo "... cl.i"
 	@echo "... cl.s"
-	@echo "... client.o"
-	@echo "... client.i"
-	@echo "... client.s"
+	@echo "... helper.o"
+	@echo "... helper.i"
+	@echo "... helper.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
 	@echo "... ser.o"
 	@echo "... ser.i"
 	@echo "... ser.s"
-	@echo "... server.o"
-	@echo "... server.i"
-	@echo "... server.s"
 	@echo "... test.o"
 	@echo "... test.i"
 	@echo "... test.s"
+	@echo "... whatsappClient.o"
+	@echo "... whatsappClient.i"
+	@echo "... whatsappClient.s"
+	@echo "... whatsappServer.o"
+	@echo "... whatsappServer.i"
+	@echo "... whatsappServer.s"
 	@echo "... whatsappUtils.o"
 	@echo "... whatsappUtils.i"
 	@echo "... whatsappUtils.s"

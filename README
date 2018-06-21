@@ -3,8 +3,8 @@ Yvgeny Levinson 314467697, Ido Benshachar 203116074
 EX: 4
 
 FILES:
-server.cpp
-client.cpp
+whatsappServer.cpp
+whatsappClient.cpp
 whatsappio.cpp
 whatsappio.h
 whatsappUtils.cpp

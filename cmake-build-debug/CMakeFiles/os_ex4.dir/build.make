@@ -81,52 +81,52 @@ CMakeFiles/os_ex4.dir/main.cpp.o.provides: CMakeFiles/os_ex4.dir/main.cpp.o.requ
 CMakeFiles/os_ex4.dir/main.cpp.o.provides.build: CMakeFiles/os_ex4.dir/main.cpp.o
 
 
-CMakeFiles/os_ex4.dir/server.cpp.o: CMakeFiles/os_ex4.dir/flags.make
-CMakeFiles/os_ex4.dir/server.cpp.o: ../server.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jacksilver/CLionProjects/os_ex4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/os_ex4.dir/server.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/os_ex4.dir/server.cpp.o -c /home/jacksilver/CLionProjects/os_ex4/server.cpp
+CMakeFiles/os_ex4.dir/whatsappServer.cpp.o: CMakeFiles/os_ex4.dir/flags.make
+CMakeFiles/os_ex4.dir/whatsappServer.cpp.o: ../whatsappServer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jacksilver/CLionProjects/os_ex4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/os_ex4.dir/whatsappServer.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/os_ex4.dir/whatsappServer.cpp.o -c /home/jacksilver/CLionProjects/os_ex4/whatsappServer.cpp
 
-CMakeFiles/os_ex4.dir/server.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/os_ex4.dir/server.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jacksilver/CLionProjects/os_ex4/server.cpp > CMakeFiles/os_ex4.dir/server.cpp.i
+CMakeFiles/os_ex4.dir/whatsappServer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/os_ex4.dir/whatsappServer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jacksilver/CLionProjects/os_ex4/whatsappServer.cpp > CMakeFiles/os_ex4.dir/whatsappServer.cpp.i
 
-CMakeFiles/os_ex4.dir/server.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/os_ex4.dir/server.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jacksilver/CLionProjects/os_ex4/server.cpp -o CMakeFiles/os_ex4.dir/server.cpp.s
+CMakeFiles/os_ex4.dir/whatsappServer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/os_ex4.dir/whatsappServer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jacksilver/CLionProjects/os_ex4/whatsappServer.cpp -o CMakeFiles/os_ex4.dir/whatsappServer.cpp.s
 
-CMakeFiles/os_ex4.dir/server.cpp.o.requires:
+CMakeFiles/os_ex4.dir/whatsappServer.cpp.o.requires:
 
-.PHONY : CMakeFiles/os_ex4.dir/server.cpp.o.requires
+.PHONY : CMakeFiles/os_ex4.dir/whatsappServer.cpp.o.requires
 
-CMakeFiles/os_ex4.dir/server.cpp.o.provides: CMakeFiles/os_ex4.dir/server.cpp.o.requires
-	$(MAKE) -f CMakeFiles/os_ex4.dir/build.make CMakeFiles/os_ex4.dir/server.cpp.o.provides.build
-.PHONY : CMakeFiles/os_ex4.dir/server.cpp.o.provides
+CMakeFiles/os_ex4.dir/whatsappServer.cpp.o.provides: CMakeFiles/os_ex4.dir/whatsappServer.cpp.o.requires
+	$(MAKE) -f CMakeFiles/os_ex4.dir/build.make CMakeFiles/os_ex4.dir/whatsappServer.cpp.o.provides.build
+.PHONY : CMakeFiles/os_ex4.dir/whatsappServer.cpp.o.provides
 
-CMakeFiles/os_ex4.dir/server.cpp.o.provides.build: CMakeFiles/os_ex4.dir/server.cpp.o
+CMakeFiles/os_ex4.dir/whatsappServer.cpp.o.provides.build: CMakeFiles/os_ex4.dir/whatsappServer.cpp.o
 
 
-CMakeFiles/os_ex4.dir/client.cpp.o: CMakeFiles/os_ex4.dir/flags.make
-CMakeFiles/os_ex4.dir/client.cpp.o: ../client.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jacksilver/CLionProjects/os_ex4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/os_ex4.dir/client.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/os_ex4.dir/client.cpp.o -c /home/jacksilver/CLionProjects/os_ex4/client.cpp
+CMakeFiles/os_ex4.dir/whatsappClient.cpp.o: CMakeFiles/os_ex4.dir/flags.make
+CMakeFiles/os_ex4.dir/whatsappClient.cpp.o: ../whatsappClient.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jacksilver/CLionProjects/os_ex4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/os_ex4.dir/whatsappClient.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/os_ex4.dir/whatsappClient.cpp.o -c /home/jacksilver/CLionProjects/os_ex4/whatsappClient.cpp
 
-CMakeFiles/os_ex4.dir/client.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/os_ex4.dir/client.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jacksilver/CLionProjects/os_ex4/client.cpp > CMakeFiles/os_ex4.dir/client.cpp.i
+CMakeFiles/os_ex4.dir/whatsappClient.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/os_ex4.dir/whatsappClient.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jacksilver/CLionProjects/os_ex4/whatsappClient.cpp > CMakeFiles/os_ex4.dir/whatsappClient.cpp.i
 
-CMakeFiles/os_ex4.dir/client.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/os_ex4.dir/client.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jacksilver/CLionProjects/os_ex4/client.cpp -o CMakeFiles/os_ex4.dir/client.cpp.s
+CMakeFiles/os_ex4.dir/whatsappClient.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/os_ex4.dir/whatsappClient.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jacksilver/CLionProjects/os_ex4/whatsappClient.cpp -o CMakeFiles/os_ex4.dir/whatsappClient.cpp.s
 
-CMakeFiles/os_ex4.dir/client.cpp.o.requires:
+CMakeFiles/os_ex4.dir/whatsappClient.cpp.o.requires:
 
-.PHONY : CMakeFiles/os_ex4.dir/client.cpp.o.requires
+.PHONY : CMakeFiles/os_ex4.dir/whatsappClient.cpp.o.requires
 
-CMakeFiles/os_ex4.dir/client.cpp.o.provides: CMakeFiles/os_ex4.dir/client.cpp.o.requires
-	$(MAKE) -f CMakeFiles/os_ex4.dir/build.make CMakeFiles/os_ex4.dir/client.cpp.o.provides.build
-.PHONY : CMakeFiles/os_ex4.dir/client.cpp.o.provides
+CMakeFiles/os_ex4.dir/whatsappClient.cpp.o.provides: CMakeFiles/os_ex4.dir/whatsappClient.cpp.o.requires
+	$(MAKE) -f CMakeFiles/os_ex4.dir/build.make CMakeFiles/os_ex4.dir/whatsappClient.cpp.o.provides.build
+.PHONY : CMakeFiles/os_ex4.dir/whatsappClient.cpp.o.provides
 
-CMakeFiles/os_ex4.dir/client.cpp.o.provides.build: CMakeFiles/os_ex4.dir/client.cpp.o
+CMakeFiles/os_ex4.dir/whatsappClient.cpp.o.provides.build: CMakeFiles/os_ex4.dir/whatsappClient.cpp.o
 
 
 CMakeFiles/os_ex4.dir/whatsappUtils.cpp.o: CMakeFiles/os_ex4.dir/flags.make
@@ -249,31 +249,57 @@ CMakeFiles/os_ex4.dir/cl.cpp.o.provides: CMakeFiles/os_ex4.dir/cl.cpp.o.requires
 CMakeFiles/os_ex4.dir/cl.cpp.o.provides.build: CMakeFiles/os_ex4.dir/cl.cpp.o
 
 
+CMakeFiles/os_ex4.dir/helper.cpp.o: CMakeFiles/os_ex4.dir/flags.make
+CMakeFiles/os_ex4.dir/helper.cpp.o: helper.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jacksilver/CLionProjects/os_ex4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/os_ex4.dir/helper.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/os_ex4.dir/helper.cpp.o -c /home/jacksilver/CLionProjects/os_ex4/cmake-build-debug/helper.cpp
+
+CMakeFiles/os_ex4.dir/helper.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/os_ex4.dir/helper.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jacksilver/CLionProjects/os_ex4/cmake-build-debug/helper.cpp > CMakeFiles/os_ex4.dir/helper.cpp.i
+
+CMakeFiles/os_ex4.dir/helper.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/os_ex4.dir/helper.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jacksilver/CLionProjects/os_ex4/cmake-build-debug/helper.cpp -o CMakeFiles/os_ex4.dir/helper.cpp.s
+
+CMakeFiles/os_ex4.dir/helper.cpp.o.requires:
+
+.PHONY : CMakeFiles/os_ex4.dir/helper.cpp.o.requires
+
+CMakeFiles/os_ex4.dir/helper.cpp.o.provides: CMakeFiles/os_ex4.dir/helper.cpp.o.requires
+	$(MAKE) -f CMakeFiles/os_ex4.dir/build.make CMakeFiles/os_ex4.dir/helper.cpp.o.provides.build
+.PHONY : CMakeFiles/os_ex4.dir/helper.cpp.o.provides
+
+CMakeFiles/os_ex4.dir/helper.cpp.o.provides.build: CMakeFiles/os_ex4.dir/helper.cpp.o
+
+
 # Object files for target os_ex4
 os_ex4_OBJECTS = \
 "CMakeFiles/os_ex4.dir/main.cpp.o" \
-"CMakeFiles/os_ex4.dir/server.cpp.o" \
-"CMakeFiles/os_ex4.dir/client.cpp.o" \
+"CMakeFiles/os_ex4.dir/whatsappServer.cpp.o" \
+"CMakeFiles/os_ex4.dir/whatsappClient.cpp.o" \
 "CMakeFiles/os_ex4.dir/whatsappUtils.cpp.o" \
 "CMakeFiles/os_ex4.dir/test.cpp.o" \
 "CMakeFiles/os_ex4.dir/whatsappio.cpp.o" \
 "CMakeFiles/os_ex4.dir/ser.cpp.o" \
-"CMakeFiles/os_ex4.dir/cl.cpp.o"
+"CMakeFiles/os_ex4.dir/cl.cpp.o" \
+"CMakeFiles/os_ex4.dir/helper.cpp.o"
 
 # External object files for target os_ex4
 os_ex4_EXTERNAL_OBJECTS =
 
 os_ex4: CMakeFiles/os_ex4.dir/main.cpp.o
-os_ex4: CMakeFiles/os_ex4.dir/server.cpp.o
-os_ex4: CMakeFiles/os_ex4.dir/client.cpp.o
+os_ex4: CMakeFiles/os_ex4.dir/whatsappServer.cpp.o
+os_ex4: CMakeFiles/os_ex4.dir/whatsappClient.cpp.o
 os_ex4: CMakeFiles/os_ex4.dir/whatsappUtils.cpp.o
 os_ex4: CMakeFiles/os_ex4.dir/test.cpp.o
 os_ex4: CMakeFiles/os_ex4.dir/whatsappio.cpp.o
 os_ex4: CMakeFiles/os_ex4.dir/ser.cpp.o
 os_ex4: CMakeFiles/os_ex4.dir/cl.cpp.o
+os_ex4: CMakeFiles/os_ex4.dir/helper.cpp.o
 os_ex4: CMakeFiles/os_ex4.dir/build.make
 os_ex4: CMakeFiles/os_ex4.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jacksilver/CLionProjects/os_ex4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable os_ex4"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jacksilver/CLionProjects/os_ex4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable os_ex4"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/os_ex4.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -282,13 +308,14 @@ CMakeFiles/os_ex4.dir/build: os_ex4
 .PHONY : CMakeFiles/os_ex4.dir/build
 
 CMakeFiles/os_ex4.dir/requires: CMakeFiles/os_ex4.dir/main.cpp.o.requires
-CMakeFiles/os_ex4.dir/requires: CMakeFiles/os_ex4.dir/server.cpp.o.requires
-CMakeFiles/os_ex4.dir/requires: CMakeFiles/os_ex4.dir/client.cpp.o.requires
+CMakeFiles/os_ex4.dir/requires: CMakeFiles/os_ex4.dir/whatsappServer.cpp.o.requires
+CMakeFiles/os_ex4.dir/requires: CMakeFiles/os_ex4.dir/whatsappClient.cpp.o.requires
 CMakeFiles/os_ex4.dir/requires: CMakeFiles/os_ex4.dir/whatsappUtils.cpp.o.requires
 CMakeFiles/os_ex4.dir/requires: CMakeFiles/os_ex4.dir/test.cpp.o.requires
 CMakeFiles/os_ex4.dir/requires: CMakeFiles/os_ex4.dir/whatsappio.cpp.o.requires
 CMakeFiles/os_ex4.dir/requires: CMakeFiles/os_ex4.dir/ser.cpp.o.requires
 CMakeFiles/os_ex4.dir/requires: CMakeFiles/os_ex4.dir/cl.cpp.o.requires
+CMakeFiles/os_ex4.dir/requires: CMakeFiles/os_ex4.dir/helper.cpp.o.requires
 
 .PHONY : CMakeFiles/os_ex4.dir/requires
 

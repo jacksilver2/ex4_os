@@ -4,11 +4,11 @@ CFLAGS = -c -std=c++11 -Wall -Wextra -Wvla
 
 all: Server Client
 
-Client.o: client.cpp
-	$(CC) $(CPPFLAGS) $(CFLAGS) client.cpp -o Client.o
+Client.o: whatsappClient.cpp
+	$(CC) $(CPPFLAGS) $(CFLAGS) whatsappClient.cpp -o Client.o
 
-Server.o: server.cpp
-	$(CC) $(CPPFLAGS) $(CFLAGS) server.cpp -o Server.o
+Server.o: whatsappServer.cpp
+	$(CC) $(CPPFLAGS) $(CFLAGS) whatsappServer.cpp -o Server.o
 
 Server: Server.o whatsappio.o whatsappUtils.o
 	${CC} Server.o whatsappio.o whatsappUtils.o -o whatsappServer
@@ -29,7 +29,7 @@ clean:
 	rm -rf *.o whatsappServer whatsappClient ex4.tar
 
 tar:
-	tar -cvf ex4.tar server.cpp client.cpp whatsappio.cpp whatsappio.h whatsappUtils.cpp whatsappUtils.h README Makefile
+	tar -cvf ex4.tar whatsappServer.cpp whatsappClient.cpp whatsappio.cpp whatsappio.h whatsappUtils.cpp whatsappUtils.h README Makefile
 
 val: server
 	valgrind --leak-check=full --show-possibly-lost=yes --show-reachable=yes\

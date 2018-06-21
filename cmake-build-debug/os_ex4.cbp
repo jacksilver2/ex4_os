@@ -87,10 +87,7 @@
 		<Unit filename="/home/jacksilver/CLionProjects/os_ex4/cl.cpp">
 			<Option target="os_ex4"/>
 		</Unit>
-		<Unit filename="/home/jacksilver/CLionProjects/os_ex4/client.cpp">
-			<Option target="os_ex4"/>
-		</Unit>
-		<Unit filename="/home/jacksilver/CLionProjects/os_ex4/client.h">
+		<Unit filename="/home/jacksilver/CLionProjects/os_ex4/cmake-build-debug/helper.cpp">
 			<Option target="os_ex4"/>
 		</Unit>
 		<Unit filename="/home/jacksilver/CLionProjects/os_ex4/main.cpp">
@@ -99,13 +96,19 @@
 		<Unit filename="/home/jacksilver/CLionProjects/os_ex4/ser.cpp">
 			<Option target="os_ex4"/>
 		</Unit>
-		<Unit filename="/home/jacksilver/CLionProjects/os_ex4/server.cpp">
-			<Option target="os_ex4"/>
-		</Unit>
-		<Unit filename="/home/jacksilver/CLionProjects/os_ex4/server.h">
-			<Option target="os_ex4"/>
-		</Unit>
 		<Unit filename="/home/jacksilver/CLionProjects/os_ex4/test.cpp">
+			<Option target="os_ex4"/>
+		</Unit>
+		<Unit filename="/home/jacksilver/CLionProjects/os_ex4/whatsappClient.cpp">
+			<Option target="os_ex4"/>
+		</Unit>
+		<Unit filename="/home/jacksilver/CLionProjects/os_ex4/whatsappClient.h">
+			<Option target="os_ex4"/>
+		</Unit>
+		<Unit filename="/home/jacksilver/CLionProjects/os_ex4/whatsappServer.cpp">
+			<Option target="os_ex4"/>
+		</Unit>
+		<Unit filename="/home/jacksilver/CLionProjects/os_ex4/whatsappServer.h">
 			<Option target="os_ex4"/>
 		</Unit>
 		<Unit filename="/home/jacksilver/CLionProjects/os_ex4/whatsappUtils.cpp">

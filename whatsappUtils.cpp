@@ -21,34 +21,19 @@
 
 int establish(unsigned short portnum)
 {
-	char myname[MAXHOSTNAME + 1];
 	int s;
 	struct sockaddr_in sa;
-	struct hostent *hp;
 
-	gethostname(myname, MAXHOSTNAME); //filling up myname var
-	hp = gethostbyname(myname); // filling the hostent struct with what is
-	if (hp == NULL)
-	{
-		return -1;
-	}
-	//sockaddr_in init:
 	memset(&sa, 0, sizeof(struct sockaddr_in));
-	sa.sin_family = static_cast<sa_family_t>(hp->h_addrtype);
-
-	/*this is our host address*/
-	memcpy(&sa.sin_addr, hp->h_addr, static_cast<size_t>(hp->h_length));
-	//std::cout << "Host IP: " << inet_ntoa(sa.sin_addr) << std::endl;
-	/*this is port number*/
+	sa.sin_family = AF_INET;
+	sa.sin_addr.s_addr = INADDR_ANY;
 	sa.sin_port = htons(portnum);
-	//std::cout << "Sockets' port: " << ntohs(sa.sin_port) << std::endl;
 
 	/*create socket*/
 	if ((s = socket(AF_INET, SOCK_STREAM, 0)) < 0)
 	{
 		print_error("socket",errno);
-
-		return (-1);
+		exit(1);
 	}
 
 	/*bind*/
@@ -57,16 +42,15 @@ int establish(unsigned short portnum)
 	{
 		print_error("bind",errno);
 		close(s);
-		return (-1);
+		exit(1);
 	}
 	if(listen(s, 10)<0)
 	{
 		print_error("listen",errno);
 		close (s);
-		return -1;
+		exit(1);
 	}
 	return (s);
-
 }
 
 // basically accept()

@@ -16,7 +16,7 @@
 #include "stdio.h"
 #include "whatsappUtils.h"
 #include "whatsappio.h"
-#include "server.h"
+#include "whatsappServer.h"
 #include <algorithm>
 
 #define MAX_CLIENTS 30
@@ -80,7 +80,6 @@ std::string whoLlist(bool success, const std::map<std::string, triple> &clientMa
 	}
 	return ret;
 }
-
 
 void listGroups(std::map<std::string, std::vector<std::string>> &gmap)
 {
@@ -171,7 +170,7 @@ int main(int argc, char *argv[])
 		{
 			//server std input:
 			std::cin.getline(srvrCmdBuff, 256);
-			if (std::string(srvrCmdBuff) == EXIT_CODE)
+			if (std::string(srvrCmdBuff) == "EXIT")
 			{
 				close(serverSocket);
 				terminateServer = true;
