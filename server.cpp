@@ -55,15 +55,9 @@ int removeByName(std::vector<std::string> *vec, std::string name);
 
 void kill(std::map<std::string, triple> &clientMap);
 
-void trace(std::string s)
-{
-	//std::cout << "trace  " << s << std::endl;
-}
-
 std::string whoLlist(bool success, const std::map<std::string, triple> &clientMap)
 {
 	std::string ret;
-	char *c_string = nullptr;
 	if (success)
 	{
 		bool first = true;
@@ -142,7 +136,6 @@ int main(int argc, char *argv[])
 	char srvrCmdBuff[256];
 	bool terminateServer = false;
 	int count = 0;
-	int curFD = 0;
 	std::queue<std::string> toErase;
 	std::map<std::string, triple>::iterator it;
 
@@ -268,7 +261,6 @@ int main(int argc, char *argv[])
 						send(it->second.fd, list.c_str(), strlen(list.c_str()), 0);
 					}
 					bool gFlow = true;
-					bool pleaseErase = false;
 					std::string fullMsg;
 
 					if (parsedCmdType ==
@@ -402,7 +394,7 @@ void printAllMessages(std::string clientName, std::map<std::string, triple> &cli
 
 int removeByName(std::vector<std::string> *vec, std::string name)
 {
-	int i;
+	unsigned int i;
 	for (i = 0; i < vec->size(); ++i)
 	{
 		if ((*vec)[i] == name)

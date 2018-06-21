@@ -144,7 +144,7 @@ int call_socket_by_address(char *ip, u_short portnum)
 int read_data(int s, char *buf, size_t n)
 {
 
-	int bcount; //total byte count that was read
+	unsigned int bcount; //total byte count that was read
 	ssize_t br; //bytes that are read at each pass
 	bcount = 0;
 	br = 0;
@@ -168,7 +168,7 @@ int read_data(int s, char *buf, size_t n)
 
 int write_data(int s, char *buf, size_t n)
 {
-	int bcount; //total byte count that was read
+	unsigned int bcount; //total byte count that was read
 	ssize_t br; //bytes that are read at each pass
 	bcount = 0;
 	br = 0;

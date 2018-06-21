@@ -12,16 +12,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5fe1573-cfe2-4314-b6f4-55398edc3bbb" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cl.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/cl.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/client.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/makefile" beforeDir="false" afterPath="$PROJECT_DIR$/makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/makefile" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/whatsappClient" beforeDir="false" afterPath="$PROJECT_DIR$/whatsappClient" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/whatsappServer" beforeDir="false" afterPath="$PROJECT_DIR$/whatsappServer" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/whatsappUtils.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/whatsappUtils.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/whatsappUtils.h" beforeDir="false" afterPath="$PROJECT_DIR$/whatsappUtils.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,127 +31,88 @@
     <favorites_list name="os_ex4" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.59137464">
-      <split-first>
-        <splitter split-orientation="vertical" split-proportion="0.9">
-          <split-first>
-            <leaf>
-              <file leaf-file-name="whatsappUtils.h" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/whatsappUtils.h">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="174">
-                      <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="client.cpp" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/client.cpp">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="411">
-                      <caret line="37" column="5" lean-forward="true" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
-                      <folding>
-                        <element signature="e#0#19#0" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="whatsappUtils.cpp" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/whatsappUtils.cpp">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="585">
-                      <caret line="197" selection-start-line="197" selection-end-line="197" selection-end-column="44" />
-                      <folding>
-                        <element signature="e#342#1434#0" />
-                        <element signature="e#1436#1623#0" />
-                        <element signature="e#1625#2314#0" />
-                        <element signature="e#2316#2819#0" />
-                        <element signature="e#2821#3218#0" />
-                        <element signature="e#3220#3702#0" />
-                        <element signature="e#3703#3789#0" />
-                        <element signature="e#3791#3913#0" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="server.cpp" pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/server.cpp">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="116">
-                      <caret line="23" column="46" lean-forward="true" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="whatsappio.cpp" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/whatsappio.cpp">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="199">
-                      <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-                      <folding>
-                        <element signature="e#0#23#0" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="whatsappio.h" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/whatsappio.h">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="184">
-                      <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="Local (1)" pinned="false" current-in-tab="false">
-                <entry file="mock:///Local (1)">
-                  <provider selected="true" editor-type-id="terminal-session-editor" />
-                </entry>
-              </file>
-            </leaf>
-          </split-first>
-          <split-second>
-            <leaf>
-              <file leaf-file-name="Local (1)" pinned="false" current-in-tab="true">
-                <entry file="mock:///Local (1)">
-                  <provider selected="true" editor-type-id="terminal-session-editor" />
-                </entry>
-              </file>
-            </leaf>
-          </split-second>
-        </splitter>
-      </split-first>
-      <split-second>
-        <splitter split-orientation="vertical" split-proportion="0.42582417">
-          <split-first>
-            <leaf>
-              <file leaf-file-name="Local (1)" pinned="false" current-in-tab="true">
-                <entry file="mock:///Local (1)">
-                  <provider selected="true" editor-type-id="terminal-session-editor" />
-                </entry>
-              </file>
-            </leaf>
-          </split-first>
-          <split-second>
-            <leaf>
-              <file leaf-file-name="Local (1)" pinned="false" current-in-tab="true">
-                <entry file="mock:///Local (1)">
-                  <provider selected="true" editor-type-id="terminal-session-editor" />
-                </entry>
-              </file>
-            </leaf>
-          </split-second>
-        </splitter>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="whatsappUtils.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/whatsappUtils.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="38">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="client.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="411">
+              <caret line="37" column="5" lean-forward="true" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="whatsappUtils.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/whatsappUtils.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="334">
+              <caret line="170" column="13" selection-start-line="170" selection-start-column="13" selection-end-line="170" selection-end-column="13" />
+              <folding>
+                <element signature="e#342#1434#0" />
+                <element signature="e#1436#1623#0" />
+                <element signature="e#1625#2314#0" />
+                <element signature="e#2316#2819#0" />
+                <element signature="e#3703#3789#0" />
+                <element signature="e#3791#3913#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="305">
+              <caret line="60" selection-start-line="60" selection-end-line="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="client.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="116">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="whatsappio.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/whatsappio.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="199">
+              <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="whatsappio.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/whatsappio.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>str(</find>
-      <find>string</find>
       <find>string(</find>
       <find>exit(1)</find>
       <find>;</find>
@@ -185,6 +141,8 @@
       <find>CREATE</find>
       <find>isal</find>
       <find>create</find>
+      <find>please</find>
+      <find>cur</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -204,10 +162,10 @@
         <option value="$PROJECT_DIR$/ser.cpp" />
         <option value="$PROJECT_DIR$/whatsappio.cpp" />
         <option value="$PROJECT_DIR$/main.cpp" />
-        <option value="$PROJECT_DIR$/whatsappUtils.cpp" />
         <option value="$PROJECT_DIR$/whatsappUtils.h" />
         <option value="$PROJECT_DIR$/cl.cpp" />
         <option value="$PROJECT_DIR$/client.cpp" />
+        <option value="$PROJECT_DIR$/whatsappUtils.cpp" />
         <option value="$PROJECT_DIR$/server.cpp" />
       </list>
     </option>
@@ -312,7 +270,7 @@
       <workItem from="1529512036059" duration="196000" />
       <workItem from="1529512462059" duration="573000" />
       <workItem from="1529513054574" duration="7915000" />
-      <workItem from="1529578724651" duration="6665000" />
+      <workItem from="1529578724651" duration="9093000" />
     </task>
     <task id="LOCAL-00001" summary="some changes">
       <created>1529405709806</created>
@@ -346,13 +304,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="192393000" />
+    <option name="totallyTimeSpent" value="194821000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49460918" weight="0.16549866" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49460918" weight="0.1309973" />
       <window_info anchor="bottom" id="TODO" order="5" />
       <window_info anchor="bottom" id="CMake" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -360,7 +317,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49973047" weight="0.32921812" />
       <window_info anchor="right" x="756" y="280" width="461" height="610" id="Run" order="4" sideWeight="0.50138503" side_tool="true" weight="0.32938007" />
       <window_info id="Structure" order="1" sideWeight="0.5053908" side_tool="true" weight="0.16603774" />
-      <window_info active="true" anchor="bottom" x="39" y="424" width="1855" height="216" id="Terminal" order="9" sideWeight="0.5013477" side_tool="true" visible="true" weight="0.2510288" />
+      <window_info active="true" anchor="bottom" x="39" y="424" width="1855" height="216" id="Terminal" order="9" sideWeight="0.5013477" side_tool="true" visible="true" weight="0.56378603" />
       <window_info id="Favorites" order="2" sideWeight="0.50070524" side_tool="true" weight="0.16603774" />
       <window_info anchor="bottom" id="Debug" order="2" weight="0.37704918" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -563,13 +520,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/include/netdb.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -731,30 +681,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/whatsappUtils.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="197" selection-start-line="197" selection-end-line="197" selection-end-column="44" />
-          <folding>
-            <element signature="e#342#1434#0" />
-            <element signature="e#1436#1623#0" />
-            <element signature="e#1625#2314#0" />
-            <element signature="e#2316#2819#0" />
-            <element signature="e#2821#3218#0" />
-            <element signature="e#3220#3702#0" />
-            <element signature="e#3703#3789#0" />
-            <element signature="e#3791#3913#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/whatsappUtils.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/whatsappio.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
@@ -789,10 +715,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.cpp">
+    <entry file="file://$PROJECT_DIR$/client.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
-          <caret line="23" column="46" lean-forward="true" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/whatsappUtils.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/whatsappUtils.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="170" column="13" selection-start-line="170" selection-start-column="13" selection-end-line="170" selection-end-column="13" />
+          <folding>
+            <element signature="e#342#1434#0" />
+            <element signature="e#1436#1623#0" />
+            <element signature="e#1625#2314#0" />
+            <element signature="e#2316#2819#0" />
+            <element signature="e#3703#3789#0" />
+            <element signature="e#3791#3913#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
         </state>
       </provider>
     </entry>
