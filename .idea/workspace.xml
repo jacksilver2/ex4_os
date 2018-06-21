@@ -13,30 +13,15 @@
   <component name="ChangeListManager">
     <list default="true" id="a5fe1573-cfe2-4314-b6f4-55398edc3bbb" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client.o" beforeDir="false" afterPath="$PROJECT_DIR$/Client.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client.o" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README" beforeDir="false" afterPath="$PROJECT_DIR$/README" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server.o" beforeDir="false" afterPath="$PROJECT_DIR$/Server.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/whatsappClient.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client.h" beforeDir="false" afterPath="$PROJECT_DIR$/whatsappClient.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/os_ex4.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/os_ex4.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/os_ex4.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/os_ex4.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/os_ex4.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/os_ex4.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/os_ex4.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/os_ex4.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/os_ex4.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/os_ex4.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/os_ex4.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/os_ex4.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex4.tar" beforeDir="false" afterPath="$PROJECT_DIR$/ex4.tar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/whatsappServer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.h" beforeDir="false" afterPath="$PROJECT_DIR$/whatsappServer.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/whatsappClient" beforeDir="false" afterPath="$PROJECT_DIR$/whatsappClient" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/whatsappServer" beforeDir="false" afterPath="$PROJECT_DIR$/whatsappServer" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/whatsappUtils.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/whatsappUtils.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/whatsappUtils.o" beforeDir="false" afterPath="$PROJECT_DIR$/whatsappUtils.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whatsappClient" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whatsappClient.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/whatsappClient.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/whatsappServer" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whatsappUtils.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whatsappio.o" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -61,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="whatsappClient.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="whatsappClient.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/whatsappClient.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="112" column="35" selection-start-line="112" selection-start-column="34" selection-end-line="112" selection-end-column="35" />
+            <state relative-caret-position="336">
+              <caret line="40" column="11" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="11" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -89,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="whatsappServer.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="whatsappServer.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/whatsappServer.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="309">
-              <caret line="175" column="39" lean-forward="true" selection-start-line="175" selection-start-column="39" selection-end-line="175" selection-end-column="39" />
+              <caret line="175" column="39" selection-start-line="175" selection-start-column="39" selection-end-line="175" selection-end-column="39" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
                 <element signature="e#473#687#1" />
@@ -136,7 +121,7 @@
       <file leaf-file-name="whatsappio.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/whatsappio.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
+            <state relative-caret-position="1189">
               <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
             </state>
           </provider>
@@ -201,8 +186,8 @@
         <option value="$PROJECT_DIR$/server.cpp" />
         <option value="$PROJECT_DIR$/cmake-build-debug/helper.cpp" />
         <option value="$PROJECT_DIR$/whatsappUtils.cpp" />
-        <option value="$PROJECT_DIR$/whatsappClient.cpp" />
         <option value="$PROJECT_DIR$/whatsappServer.cpp" />
+        <option value="$PROJECT_DIR$/whatsappClient.cpp" />
       </list>
     </option>
   </component>
@@ -311,7 +296,7 @@
       <workItem from="1529512036059" duration="196000" />
       <workItem from="1529512462059" duration="573000" />
       <workItem from="1529513054574" duration="7915000" />
-      <workItem from="1529578724651" duration="11466000" />
+      <workItem from="1529578724651" duration="12788000" />
     </task>
     <task id="LOCAL-00001" summary="some changes">
       <created>1529405709806</created>
@@ -345,11 +330,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="197194000" />
+    <option name="totallyTimeSpent" value="198516000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49460918" weight="0.13045822" />
       <window_info anchor="bottom" id="TODO" order="5" />
@@ -359,7 +343,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49973047" weight="0.32921812" />
       <window_info anchor="right" x="756" y="280" width="461" height="610" id="Run" order="4" sideWeight="0.50138503" side_tool="true" weight="0.32938007" />
       <window_info id="Structure" order="1" sideWeight="0.5053908" side_tool="true" weight="0.16603774" />
-      <window_info active="true" anchor="bottom" x="39" y="424" width="1855" height="216" id="Terminal" order="9" sideWeight="0.5013477" side_tool="true" visible="true" weight="0.26337448" />
+      <window_info active="true" anchor="bottom" x="39" y="424" width="1855" height="216" id="Terminal" order="9" sideWeight="0.5013477" side_tool="true" visible="true" weight="0.43106997" />
       <window_info id="Favorites" order="2" sideWeight="0.50070524" side_tool="true" weight="0.16603774" />
       <window_info anchor="bottom" id="Debug" order="2" weight="0.37704918" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -706,13 +690,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/whatsappio.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cl.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
@@ -755,20 +732,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/whatsappClient.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="112" column="35" selection-start-line="112" selection-start-column="34" selection-end-line="112" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/whatsappServer.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="309">
-          <caret line="175" column="39" lean-forward="true" selection-start-line="175" selection-start-column="39" selection-end-line="175" selection-end-column="39" />
+          <caret line="175" column="39" selection-start-line="175" selection-start-column="39" selection-end-line="175" selection-end-column="39" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
             <element signature="e#473#687#1" />
@@ -782,6 +749,23 @@
             <element signature="e#9572#9896#0" />
             <element signature="e#9898#10064#0" />
             <element signature="e#10067#10292#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/whatsappio.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1189">
+          <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/whatsappClient.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="40" column="11" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>

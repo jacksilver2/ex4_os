@@ -15,13 +15,40 @@ Makefile
 Answers:
 
 Q1:
-bla
+
+a) adding a new valid command leave_group, checking parsing, and sending the information to the server.
+b) recognition of new command, checking received command, checking if the sender is in the group he wants to
+be removed from.
+in addition notify both sides if request is not valid (syntax) 
+or if the client wants to be removed from a group he is not part of.
+notify opuon success.
+
+To make sure that the group is deleted the data structure for "group" on the server side should maintain
+a counter of members. every remove will decrease counter and when counter is zero (i.e when the last client 
+removes himself) the group is erased in the server.
 
 Q2:
-bla
+
+TCP is more reliable, it makes sure that all data is transmitted in the correct order. it is important to have
+that in a protocol involving sending of messages back and fourth, like in a chatting app.
 
 Q3:
-bla
+
+Online gaming, skype (or streaming of audio/video). Udp is better because it is faster (has less overhead) and
+the occasional "glitch" due to some corrupted packet (that would look like a frozen frame, some latency in the game
+or garbled audio) is perfered to overall lower speed of comunication that would occur if we would have to verify
+data and correct errors like in TCP.
 
 Q4:
-bla
+
+One solution is periodically writing to a local file (like a backup) on the server. The data written will
+be formatted such that in can be decoded after a crash to reconstruct the information about client names, groups.
+in a ddition, for handling large volumes there should be a queue for incoming commands on the server side so that
+in case the server crashes and some requests have not yet been handled -- those will be executed when the server is
+restarted with the backup file.
+
+Another solution can be creating a secondary server and "clone" the activity and data structures from the main server.
+In this case clients should be connected to both servers. as long as the main server running it should handle the 
+incoming requests. Before sending requests clients will check if the connection to main server is still alive. 
+if main connection is dead they will switch to secondary.
+

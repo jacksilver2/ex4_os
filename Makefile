@@ -31,8 +31,5 @@ clean:
 tar:
 	tar -cvf ex4.tar whatsappServer.cpp whatsappClient.cpp whatsappio.cpp whatsappio.h whatsappUtils.cpp whatsappUtils.h README Makefile
 
-val: server
-	valgrind --leak-check=full --show-possibly-lost=yes --show-reachable=yes\
-	 --undef-value-errors=yes whatsappServer 3333
 
 .PHONY: clean, tar, all, val

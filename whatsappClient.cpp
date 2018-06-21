@@ -38,6 +38,7 @@ int main(int argc, char *argv[])
 	}
 
 	char inBuff[256];
+	memset(inBuff, 0, 256);
 	std::string rawServerMsg;
 	send(cs, clientName, strlen(clientName), 0);
 	rawServerMsg = std::string(inBuff);
@@ -110,7 +111,6 @@ int main(int argc, char *argv[])
 		}
 		if (FD_ISSET(STDIN_FILENO, &readFds))
 		{
-			memset(inBuff, 0, 256);
 			std::cin.getline(inBuff, 1024);
 			FD_CLR(STDIN_FILENO, &readFds);
 			str = std::string(inBuff);
